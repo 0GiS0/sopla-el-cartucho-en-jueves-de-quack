@@ -22,7 +22,7 @@ const dots = [
 ] as const;
 ---
 
-<div class="gb-wrap" aria-hidden="true">
+<div class="gb-wrap" aria-hidden="true" data-base-url={import.meta.env.BASE_URL}>
   <div class="gameboy">
 
     <div class="screen-area">
@@ -733,7 +733,15 @@ const dots = [
       // 1. Start visual boot sequence
       gbWrap.classList.add('is-on');
 
-      // 2. Play audio — AudioContext created inside click handler (user gesture ✓)
+      // 2. Play quack sound on power-on (user gesture ✓)
+      try {
+        var baseUrl = (gbWrap.getAttribute('data-base-url') || '').replace(/\/$/, '');
+        var quackAudio = new Audio(baseUrl + '/sounds/quack.mp3');
+        quackAudio.volume = 0.5;
+        quackAudio.play().catch(function() {});
+      } catch (e) {}
+
+      // 3. Play retro ping after quack
       try {
         var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         audioCtx.resume().then(function () {
