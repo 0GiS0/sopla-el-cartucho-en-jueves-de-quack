@@ -1,0 +1,31 @@
+{
+  "name": "sopla-el-cartucho-en-jueves-de-quack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Jueves de Quack retro site — Astro UI + Game Boy cartridges for GitHub YouTube sessions",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test test/*.test.js",
+    "fetch-sessions": "tsx scripts/fetch-sessions.ts",
+    "generate:assets": "tsx scripts/generate-assets.ts",
+    "generate:covers": "tsx scripts/generate-covers.ts",
+    "generate:all": "npm run generate:assets && npm run generate:covers"
+  },
+  "dependencies": {
+    "sharp": "^0.33.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "astro": "^5.5.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3"
+  }
+}

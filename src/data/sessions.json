@@ -1,0 +1,45 @@
+{
+  "show": {
+    "name": "Jueves de Quack",
+    "channel": "GitHub",
+    "channelUrl": "https://www.youtube.com/@GitHub"
+  },
+  "sessions": [
+    {
+      "id": "jueves-de-quack-con-karobot",
+      "title": "Jueves de Quack con @Karobot",
+      "description": "Esta semana hablamos con el equipo de Fundación Átoma — una organización sin ánimo de lucro que usa educación y tecnología para abrir oportunidades reales para mujeres, jóvenes y comunidades vulnerables en Colombia. https://fundacionatoma.org/",
+      "speakers": [
+        {
+          "name": "Karobot",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i1.ytimg.com/vi/PQl8v1Uu9oE/hqdefault.jpg"
+        }
+      ],
+      "date": "2026-03-13",
+      "videoUrl": "https://www.youtube.com/watch?v=PQl8v1Uu9oE",
+      "thumbnailUrl": "https://i1.ytimg.com/vi/PQl8v1Uu9oE/hqdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-con-nerdearla",
+      "title": "Jueves de Quack con Nerdearla",
+      "description": "Este Jueves de Quack tengo un invitado muy especial: Ariel Jolo de Sysarmy, uno de los organizadores de Nerdearla.\n\nVamos a conversar sobre comunidad, tecnología en Latinoamérica, cómo nació Nerdearla, y qué se necesita para construir espacios donde developers, sysadmins y gente curiosa por la tecnología puedan aprender y conectarse.\n\nTambién vamos a hablar de cultura open source, el ecosistema tech en la región, y seguro saldrán muchas historias del detrás de escena de una de las conferencias m",
+      "speakers": [
+        {
+          "name": "Nerdearla",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i4.ytimg.com/vi/StWXcesvGj4/hqdefault.jpg"
+        }
+      ],
+      "date": "2026-03-12",
+      "videoUrl": "https://www.youtube.com/watch?v=StWXcesvGj4",
+      "thumbnailUrl": "https://i4.ytimg.com/vi/StWXcesvGj4/hqdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    }
+  ]
+}

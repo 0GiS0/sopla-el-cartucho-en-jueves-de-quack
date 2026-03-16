@@ -1,0 +1,27 @@
+# Cache
+.cache/
+
+# Node
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+
+# Astro
+.astro/
+dist/
+coverage/
+
+# OS/editor
+.DS_Store
+*.log
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Original hi-res avatars (not needed for deploy)
+public/assets/avatars-original/
+public/assets/avatars/original/
+.playwright-cli/

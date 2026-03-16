@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+type Resource = {
+  emoji: string;
+  title: string;
+  description: string;
+  link: string;
+  number: string;
+};
+
+const resources: Resource[] = [
+  {
+    emoji: '🦆',
+    title: 'Canal de GitHub en YouTube',
+    description: 'El canal oficial de GitHub con contenido en español e inglés. Aquí se emiten los Jueves de Quack en directo.',
+    link: 'https://www.youtube.com/@GitHub',
+    number: '01',
+  },
+  {
+    emoji: '📦',
+    title: 'Repositorio Comunitario',
+    description: 'El repo oficial de Jueves de Quack donde puedes proponer temas, reportar issues y contribuir.',
+    link: 'https://github.com/githubevents/jueves-de-quack',
+    number: '02',
+  },
+  {
+    emoji: '🤖',
+    title: 'GitHub Copilot',
+    description: 'Tu asistente de programación con IA. Uno de los temas más frecuentes en las sesiones de Jueves de Quack.',
+    link: 'https://github.com/features/copilot',
+    number: '03',
+  },
+];
+---
+
+<BaseLayout
+  title="Recursos — Sopla el Cartucho"
+  description="Recursos y enlaces de Jueves de Quack — Canal de GitHub en español."
+  currentPage="demos"
+>
+  <section class="demos-page">
+    <h1 class="page-title">
+      <span class="title-prefix" aria-hidden="true">►</span> RECURSOS
+    </h1>
+
+    <div class="demos-grid">
+      {resources.map((r) => (
+        <a href={r.link} target="_blank" rel="noopener noreferrer" class="demo-card pixel-border">
+          <div class="demo-header">
+            <span class="demo-number">{r.number}</span>
+            <span class="demo-emoji">{r.emoji}</span>
+          </div>
+          <h2 class="demo-title">{r.title}</h2>
+          <p class="demo-desc">{r.description}</p>
+          <span class="demo-cta">VER →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .demos-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #f5d060;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    margin-bottom: 24px;
+  }
+  .title-prefix { color: #4ac84a; margin-right: 8px; }
+
+  .demos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .pixel-border {
+    border: 3px solid var(--border-strong, #3a3a3a);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .demo-card {
+    background: linear-gradient(180deg, #1a2640 0%, #0e1525 100%);
+    padding: 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .demo-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  .demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .demo-number {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    color: #4ac84a;
+    background: #0a1a0a;
+    padding: 2px 8px;
+    border: 1px solid #1e3a1e;
+  }
+  .demo-emoji { font-size: 1.5rem; }
+
+  .demo-title {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    color: #f5d060;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    margin: 0;
+  }
+  .demo-desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: #8aa8c8;
+    line-height: 1.4;
+    flex: 1;
+    margin: 0;
+  }
+  .demo-cta {
+    font-family: var(--font-display);
+    font-size: 0.42rem;
+    color: #4ac84a;
+    align-self: flex-end;
+  }
+</style>
