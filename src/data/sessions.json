@@ -13,30 +13,282 @@
         {
           "name": "Karobot",
           "role": "Invitado/a",
-          "avatarUrl": "https://i1.ytimg.com/vi/PQl8v1Uu9oE/hqdefault.jpg"
+          "avatarUrl": "https://i.ytimg.com/vi/PQl8v1Uu9oE/maxresdefault.jpg"
         }
       ],
       "date": "2026-03-13",
       "videoUrl": "https://www.youtube.com/watch?v=PQl8v1Uu9oE",
-      "thumbnailUrl": "https://i1.ytimg.com/vi/PQl8v1Uu9oE/hqdefault.jpg",
+      "thumbnailUrl": "https://i.ytimg.com/vi/PQl8v1Uu9oE/maxresdefault.jpg",
       "type": "episode",
       "language": "es",
       "tags": []
     },
     {
-      "id": "jueves-de-quack-con-nerdearla",
-      "title": "Jueves de Quack con Nerdearla",
-      "description": "Este Jueves de Quack tengo un invitado muy especial: Ariel Jolo de Sysarmy, uno de los organizadores de Nerdearla.\n\nVamos a conversar sobre comunidad, tecnología en Latinoamérica, cómo nació Nerdearla, y qué se necesita para construir espacios donde developers, sysadmins y gente curiosa por la tecnología puedan aprender y conectarse.\n\nTambién vamos a hablar de cultura open source, el ecosistema tech en la región, y seguro saldrán muchas historias del detrás de escena de una de las conferencias m",
+      "id": "jueves-de-quack-intro-al-copilot-cli",
+      "title": "🐤 Jueves de Quack - Intro al Copilot CLI 🐤",
+      "description": "GitHub Copilot ya no vive solo en el editor. También está en la terminal.\n\nEn este stream vamos a empezar desde cero con el GitHub Copilot CLI: qué es, cómo funciona, y cómo puedes usarlo para convertir instrucciones en comandos reales, entender repositorios más rápido y automatizar tareas sin salir de tu flujo.\n\nVamos a cubrir:\n\n* Qué es el GitHub Copilot CLI y cómo se diferencia del Copilot del editor\n* Cómo instalarlo y configurarlo\n* Generar comandos desde lenguaje natural\n* Explicar comando",
+      "speakers": [],
+      "date": "2026-02-27",
+      "videoUrl": "https://www.youtube.com/watch?v=vkMLCIaoADI",
+      "thumbnailUrl": "https://i.ytimg.com/vi/vkMLCIaoADI/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-en-quack-con-el-bruno",
+      "title": "Jueves en Quack con El Bruno",
+      "description": "En este stream estaré con @elbruno explorando los modelos más recientes OSS de NVIDIA y qué significan para nosotros como desarrolladores. Vamos a cubrir:\n\n• Qué modelos está lanzando NVIDIA\n• En qué casos brillan realmente\n• Cómo se comparan con otras opciones\n• Formas prácticas de empezar a usarlos\n\nSi estás construyendo con IA, quieres entender mejor el panorama de modelos, o simplemente quieres mejorar tu español hablando de tecnología, este directo es para ti.\n\nTrae tus preguntas. Vamos a a",
       "speakers": [
         {
-          "name": "Nerdearla",
+          "name": "El Bruno",
           "role": "Invitado/a",
-          "avatarUrl": "https://i4.ytimg.com/vi/StWXcesvGj4/hqdefault.jpg"
+          "avatarUrl": "https://i.ytimg.com/vi/dnjGeWuqtGg/maxresdefault.jpg"
         }
       ],
-      "date": "2026-03-12",
-      "videoUrl": "https://www.youtube.com/watch?v=StWXcesvGj4",
-      "thumbnailUrl": "https://i4.ytimg.com/vi/StWXcesvGj4/hqdefault.jpg",
+      "date": "2026-02-20",
+      "videoUrl": "https://www.youtube.com/watch?v=dnjGeWuqtGg",
+      "thumbnailUrl": "https://i.ytimg.com/vi/dnjGeWuqtGg/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quak-con-carlos-alarcon-y-copilot-sdk",
+      "title": "Event in Spanish: Jueves de Quak con Carlos Alarcon y Copilot SDK",
+      "description": "En este episodio de Jueves de Quack nos acompaña @@alarcon7a, un ingeniero increíble y builder de corazón, para meternos de lleno en cómo construir con el Copilot SDK en el mundo real. Suscríbete, deja tus preguntas en los comentarios y cuéntanos qué te gustaría ver construir en próximos Jueves de Quack.",
+      "speakers": [
+        {
+          "name": "Carlos Alarcon y Copilot SDK",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/nMsuWOkaf9I/maxresdefault.jpg"
+        }
+      ],
+      "date": "2026-02-13",
+      "videoUrl": "https://www.youtube.com/watch?v=nMsuWOkaf9I",
+      "thumbnailUrl": "https://i.ytimg.com/vi/nMsuWOkaf9I/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-bienvenidos-a-la-familia-claudeai-code-y-openai-s-codex",
+      "title": "Jueves de Quack - Bienvenidos a la familia @claudeai Code y @OpenAI 's Codex",
+      "description": "¡JUEVES DE QUACK EN VIVO! \n¡BOMBAZO de GitHub! Claude (Anthropic) y Codex (OpenAI) ya están en Agent HQ junto a Copilot → ¡elige tu agente favorito sin cambiar de herramienta ni perder contexto!",
+      "speakers": [],
+      "date": "2026-02-06",
+      "videoUrl": "https://www.youtube.com/watch?v=51ZPtNPpj74",
+      "thumbnailUrl": "https://i.ytimg.com/vi/51ZPtNPpj74/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-copilot-sdk",
+      "title": "Event in Spanish: Jueves de Quack Copilot SDK",
+      "description": "Vamos a explorar juntos lo ultimo de GitHub!",
+      "speakers": [],
+      "date": "2026-01-30",
+      "videoUrl": "https://www.youtube.com/watch?v=aTVwHMrDDls",
+      "thumbnailUrl": "https://i.ytimg.com/vi/aTVwHMrDDls/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-con-acolombiadev",
+      "title": "Event in Spanish: Jueves de Quack con @acolombiadev",
+      "description": "¿Te perdiste las últimas semanas de diciembre? GitHub no se detuvo durante las fiestas. Hoy cubrimos TODO lo que necesitas saber sobre las actualizaciones más importantes.",
+      "speakers": [
+        {
+          "name": "acolombiadev",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/iBf7L5BQra4/maxresdefault.jpg"
+        }
+      ],
+      "date": "2026-01-09",
+      "videoUrl": "https://www.youtube.com/watch?v=iBf7L5BQra4",
+      "thumbnailUrl": "https://i.ytimg.com/vi/iBf7L5BQra4/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-con-carlos-azaustre",
+      "title": "Event in Spanish: Jueves de Quack con Carlos Azaustre",
+      "description": "Acompáñanos en esta nueva edición de Jueves de Quack donde @CarlosAzaustre  y  @acolombiadev  discutirán las ultimas novedades en tech, explorando https://github.com/github/spec-kit.",
+      "speakers": [
+        {
+          "name": "Carlos Azaustre",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/1fkKwbUd40I/maxresdefault.jpg"
+        }
+      ],
+      "date": "2025-12-12",
+      "videoUrl": "https://www.youtube.com/watch?v=1fkKwbUd40I",
+      "thumbnailUrl": "https://i.ytimg.com/vi/1fkKwbUd40I/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-con-gisela-torres",
+      "title": "Event in Spanish: Jueves de Quack con Gisela Torres",
+      "description": "Acompáñanos en esta nueva edición de Jueves de Quack donde Gisela Torres @returngis  y Andrea Griffiths @acolombiadev discutirán las ultimas novedades de GitHub universe 2025.",
+      "speakers": [
+        {
+          "name": "Gisela Torres",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/yUA47dQczE8/maxresdefault.jpg"
+        }
+      ],
+      "date": "2025-11-21",
+      "videoUrl": "https://www.youtube.com/watch?v=yUA47dQczE8",
+      "thumbnailUrl": "https://i.ytimg.com/vi/yUA47dQczE8/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-con-interledger",
+      "title": "Event in Spanish: Jueves de Quack con Interledger",
+      "description": "Únete ‪@alacolombiadev‬ y Marian Villa (DevRel en Interledger) para una conversación en vivo sobre innovación, comunidad y el futuro de las finanzas abiertas.\n\nEn esta sesión, exploramos:\n• Cómo Interledger está impulsando la inclusión financiera mediante estándares abiertos\n• El papel de los desarrolladores en la evolución de la infraestructura Web3\n• Consejos prácticos para construir y colaborar en proyectos globales de código abierto",
+      "speakers": [
+        {
+          "name": "Interledger",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/hATdZTq2pqk/maxresdefault.jpg"
+        }
+      ],
+      "date": "2025-11-14",
+      "videoUrl": "https://www.youtube.com/watch?v=hATdZTq2pqk",
+      "thumbnailUrl": "https://i.ytimg.com/vi/hATdZTq2pqk/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-con-gisela-torres",
+      "title": "Jueves de Quack con Gisela Torres",
+      "description": "Acompáñanos en esta nueva edición de Jueves de Quack donde Gisela Torres @returngis  enseñará cómo aprovechar la nueva herramienta de Docker llamada cagent para crear agentes y multi-agentes de IA de manera declarativa, similar a Docker Compose y cómo configurar cagent para utilizarlo GRATIS con GitHub Models. Repo: https://github.com/0GiS0/jueves-de-quack-cagent-demos.",
+      "speakers": [
+        {
+          "name": "Gisela Torres",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/LLih8bO_bCA/maxresdefault.jpg"
+        }
+      ],
+      "date": "2025-10-10",
+      "videoUrl": "https://www.youtube.com/watch?v=LLih8bO_bCA",
+      "thumbnailUrl": "https://i.ytimg.com/vi/LLih8bO_bCA/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack",
+      "title": "Jueves de Quack",
+      "description": "¡Únete a nosotros para un stream informal en español! En esta sesión, veremos cómo funciona MCP, y además discutiremos cómo integrar herramientas de IA como  en los flujos de trabajo de desarrollo. Será un espacio relajado para aprender, experimentar y compartir ideas sobre el futuro del desarrollo con inteligencia artificial y registros modernos. ¡No te lo pierdas!",
+      "speakers": [],
+      "date": "2025-10-03",
+      "videoUrl": "https://www.youtube.com/watch?v=6bD7H1gXyVM",
+      "thumbnailUrl": "https://i.ytimg.com/vi/6bD7H1gXyVM/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-2",
+      "title": "Jueves de Quack",
+      "description": "Únete @acolombiadev  y Rubén Casas (Staff Engineer en Postman) para una exploración profunda de herramientas de desarrollo de APIs de vanguardia. En esta sesión en vivo, exploramos:\n\n✅ Lo que aprenderás:\nCómo crear servidores MCP (Model Context Protocol) con un clic\nConstruir flujos de trabajo de agentes IA usando el editor visual Postman Flows\nImplementar MCP-UI para interfaces de chat interactivas\nProgramación en vivo y depuración en producción\nConsejos de carrera para llegar a nivel staff eng",
+      "speakers": [],
+      "date": "2025-09-05",
+      "videoUrl": "https://www.youtube.com/watch?v=rDdspScnSWs",
+      "thumbnailUrl": "https://i.ytimg.com/vi/rDdspScnSWs/sddefault.jpg?v=68b9513b",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "Con invitado especial Sergio Valverde. Únete a nuestra sesión de trabajo colaborativo donde desarrolladores de todo el mundo nos reunimos para crear proyectos interesantes y compartir conocimientos.",
+      "speakers": [],
+      "date": "2025-07-17",
+      "videoUrl": "https://www.youtube.com/watch?v=IpYbGAaiJT8",
+      "thumbnailUrl": "https://i.ytimg.com/vi/IpYbGAaiJT8/sddefault.jpg?v=6865a447",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-2",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "Esta semana con invitado especial Axel Garbiel Labruna, discutiremos herramientas de IA para desarrollo moderno.",
+      "speakers": [],
+      "date": "2025-07-04",
+      "videoUrl": "https://www.youtube.com/watch?v=AwTUxXl9Nyo",
+      "thumbnailUrl": "https://i.ytimg.com/vi/AwTUxXl9Nyo/sddefault.jpg?v=6865a291",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-3",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "Únete a nuestra sesión de trabajo colaborativo donde desarrolladores de todo el mundo nos reunimos para crear proyectos interesantes y compartir conocimientos.",
+      "speakers": [],
+      "date": "2025-05-30",
+      "videoUrl": "https://www.youtube.com/watch?v=CoMvYpKDMIY",
+      "thumbnailUrl": "https://i.ytimg.com/vi/CoMvYpKDMIY/sddefault.jpg?v=682e590a",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-especial-vs-code-y-github-copilot",
+      "title": "Event in Spanish: Jueves de Quack: Especial VS Code y GitHub Copilot",
+      "description": "En esta edición de Jueves de Quack veremos una entrevista con el gran DotCSV (https://www.youtube.com/c/dotcsv) y después, Andrea Griffiths y Bruno Capuano revisan las más recientes actualizaciones y características de Visual Studio Code y GitHub Copilot. Desde el Modo Agente hasta el soporte para Model Context Protocol (MCP), descubran cómo aprovechar estas herramientas para optimizar su flujo de trabajo.",
+      "speakers": [],
+      "date": "2025-05-16",
+      "videoUrl": "https://www.youtube.com/watch?v=2sckM3X4bCI",
+      "thumbnailUrl": "https://i.ytimg.com/vi/2sckM3X4bCI/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-4",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "▬▬▬▬▬▬ WANT TO LEARN MORE? 🚀  ▬▬▬▬▬▬ \n\n\n▬▬▬▬▬▬  TIMESTAMPS ⌚  ▬▬▬▬▬▬ \n\n\nStay up-to-date on all things GitHub by connecting with us:\n\nYouTube: https://gh.io/subgithub\nBlog: https://github.blog\nX: https://twitter.com/github\nLinkedIn: https://linkedin.com/company/github\nInsider newsletter: https://resources.github.com/newsletter/\nInstagram: https://www.instagram.com/github\nTikTok: https://www.tiktok.com/@github\n\nAbout GitHub\nIt’s where over 100 million developers create, share, and ship the best c",
+      "speakers": [],
+      "date": "2025-05-09",
+      "videoUrl": "https://www.youtube.com/watch?v=a81tAYvGvJU",
+      "thumbnailUrl": "https://i.ytimg.com/vi/a81tAYvGvJU/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-5",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "Únete a nuestra sesión de trabajo colaborativo donde desarrolladores de todo el mundo nos reunimos para crear proyectos interesantes y compartir conocimientos.",
+      "speakers": [],
+      "date": "2025-04-25",
+      "videoUrl": "https://www.youtube.com/watch?v=r_6YR4KIoxU",
+      "thumbnailUrl": "https://i.ytimg.com/vi/r_6YR4KIoxU/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "event-in-spanish-jueves-de-quack-6",
+      "title": "Event in Spanish: Jueves de Quack",
+      "description": "Únete a nuestra sesión de trabajo colaborativo donde desarrolladores de todo el mundo nos reunimos para crear proyectos interesantes y compartir conocimientos.",
+      "speakers": [],
+      "date": "2025-04-18",
+      "videoUrl": "https://www.youtube.com/watch?v=qGrTTFI7Nis",
+      "thumbnailUrl": "https://i.ytimg.com/vi/qGrTTFI7Nis/maxresdefault.jpg",
       "type": "episode",
       "language": "es",
       "tags": []

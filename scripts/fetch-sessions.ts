@@ -1,45 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
-import crypto from 'node:crypto';
+import { execSync } from 'node:child_process';
 import { SessionsFileSchema } from '../src/schemas/talk';
 
-const CHANNEL_ID = 'UC7c3Kb6jYCRj4JOHHZTxKsQ'; // @GitHub YouTube channel
-const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-const CACHE_DIR = path.join('.cache', 'sessions');
-const CACHE_XML_PATH = path.join(CACHE_DIR, 'feed.xml');
-const CACHE_META_PATH = path.join(CACHE_DIR, 'meta.json');
+const SEARCH_URL = 'https://www.youtube.com/@GitHub/search?query=jueves+de+quack';
 const OUT_PATH = path.join('src', 'data', 'sessions.json');
+const CACHE_PATH = path.join('.cache', 'sessions', 'yt-dlp.json');
 
-type CacheMeta = {
-  sourceUrl: string;
-  fetchedAt: string;
-  sha256: string;
-};
-
-type Args = {
-  refresh: boolean;
-};
-
-function parseArgs(argv: string[]): Args {
-  const args: Args = { refresh: false };
-
-  for (const a of argv) {
-    if (a === '--refresh') args.refresh = true;
-    else if (a === '--help' || a === '-h') {
-      process.stdout.write(`Usage: npm run fetch-sessions [-- --refresh]\n`);
-      process.exit(0);
-    } else {
-      throw new Error(`Unknown arg: ${a}`);
-    }
-  }
-
-  return args;
-}
-
-function sha256(input: string) {
-  return crypto.createHash('sha256').update(input).digest('hex');
-}
+// Title patterns that identify a Jueves de Quack episode
+const QUACK_PATTERN = /jueves\s+(?:de|en)\s+(?:quack|quak|cuack)/i;
 
 function slugify(s: string) {
   return s
@@ -50,128 +20,115 @@ function slugify(s: string) {
     .replace(/(^-|-$)/g, '');
 }
 
-async function readCache() {
+function extractSpeakerFromTitle(title: string): string | null {
+  // "… con @guest" or "… con Guest Name"
+  const m = title.match(/\s+con\s+(.+?)$/i);
+  if (m) return m[1].replace(/^@/, '').trim();
+  return null;
+}
+
+function formatDate(yyyymmdd: string): string {
+  // "20250905" → "2025-09-05"
+  if (yyyymmdd.length !== 8) return yyyymmdd;
+  return `${yyyymmdd.slice(0, 4)}-${yyyymmdd.slice(4, 6)}-${yyyymmdd.slice(6, 8)}`;
+}
+
+/**
+ * Step 1: Search the channel for Jueves de Quack videos (flat-playlist gives IDs + titles fast).
+ * Step 2: For each matching video, fetch full metadata (upload_date, description) individually.
+ */
+function discoverVideoIds(): Array<{ id: string; title: string }> {
+  process.stderr.write('Searching channel for Jueves de Quack videos...\n');
+  const raw = execSync(
+    `yt-dlp --flat-playlist -j "${SEARCH_URL}"`,
+    { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024, timeout: 60_000 }
+  );
+
+  const results: Array<{ id: string; title: string }> = [];
+  for (const line of raw.split('\n').filter(Boolean)) {
+    try {
+      const entry = JSON.parse(line);
+      const id: string = entry.id ?? '';
+      const title: string = entry.title ?? '';
+      // Skip playlists
+      if (id.startsWith('PL')) continue;
+      if (QUACK_PATTERN.test(title)) {
+        results.push({ id, title });
+      }
+    } catch { /* skip malformed lines */ }
+  }
+
+  process.stderr.write(`  Found ${results.length} candidate videos\n`);
+  return results;
+}
+
+type VideoMeta = {
+  id: string;
+  title: string;
+  upload_date: string;
+  description: string;
+  thumbnail: string;
+};
+
+function fetchVideoMeta(videoId: string): VideoMeta | null {
   try {
-    const [xml, metaRaw] = await Promise.all([
-      fs.readFile(CACHE_XML_PATH, 'utf8'),
-      fs.readFile(CACHE_META_PATH, 'utf8'),
-    ]);
-    const meta = JSON.parse(metaRaw) as CacheMeta;
-    return { xml, meta };
+    const raw = execSync(
+      `yt-dlp --skip-download --print "%(id)s\t%(upload_date)s\t%(title)s\t%(description)s\t%(thumbnail)s" "https://www.youtube.com/watch?v=${videoId}"`,
+      { encoding: 'utf8', maxBuffer: 1024 * 1024, timeout: 30_000, stdio: ['pipe', 'pipe', 'pipe'] }
+    ).trim();
+
+    const parts = raw.split('\t');
+    if (parts.length < 5) return null;
+
+    return {
+      id: parts[0],
+      upload_date: parts[1],
+      title: parts[2],
+      description: parts[3],
+      thumbnail: parts[4],
+    };
   } catch {
     return null;
   }
 }
 
-async function writeCache(xml: string, meta: CacheMeta) {
-  await fs.mkdir(CACHE_DIR, { recursive: true });
-  await Promise.all([
-    fs.writeFile(CACHE_XML_PATH, xml, 'utf8'),
-    fs.writeFile(CACHE_META_PATH, JSON.stringify(meta, null, 2) + '\n', 'utf8'),
-  ]);
-}
-
-async function fetchFeed({ refresh }: Args) {
-  const cached = refresh ? null : await readCache();
-
+async function main() {
+  // Check yt-dlp is available
   try {
-    const res = await fetch(RSS_URL, {
-      headers: {
-        Accept: 'application/xml, text/xml',
-        'User-Agent': 'sopla-el-cartucho-jueves-de-quack/feed-fetch',
-      },
-    });
-
-    if (!res.ok) {
-      throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
-    }
-
-    const xml = await res.text();
-    const meta: CacheMeta = {
-      sourceUrl: RSS_URL,
-      fetchedAt: new Date().toISOString(),
-      sha256: sha256(xml),
-    };
-
-    await writeCache(xml, meta);
-    return { xml, cache: cached ? ('refreshed' as const) : ('miss' as const) };
-  } catch (err) {
-    if (cached) {
-      process.stderr.write(`WARN: fetch failed, using cached XML (reason: ${String(err)})\n`);
-      return { xml: cached.xml, cache: 'stale' as const };
-    }
-    throw err;
+    execSync('yt-dlp --version', { stdio: 'pipe' });
+  } catch {
+    process.stderr.write('ERROR: yt-dlp is required. Install it: pip install yt-dlp\n');
+    process.exitCode = 1;
+    return;
   }
-}
 
-function extractText(xml: string, tag: string): string {
-  const regex = new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`, 'i');
-  const match = xml.match(regex);
-  return match?.[1]?.trim() ?? '';
-}
+  const candidates = discoverVideoIds();
 
-function extractAttr(xml: string, tag: string, attr: string): string {
-  const regex = new RegExp(`<${tag}[^>]*${attr}="([^"]*)"`, 'i');
-  const match = xml.match(regex);
-  return match?.[1] ?? '';
-}
-
-function extractEntries(xml: string): string[] {
-  const entries: string[] = [];
-  const regex = /<entry>([\s\S]*?)<\/entry>/gi;
-  let match;
-  while ((match = regex.exec(xml)) !== null) {
-    entries.push(match[1]);
-  }
-  return entries;
-}
-
-function extractSpeakerFromTitle(title: string): { guest: string; topic: string } | null {
-  // Common patterns: "Jueves de Quack con @guest" or "Jueves de Quack: topic con guest"
-  const conMatch = title.match(/(?:Jueves de Quack[:\s]*.*?)\s+con\s+(.+?)$/i);
-  if (conMatch) {
-    const guest = conMatch[1].replace(/^@/, '').trim();
-    const topic = title.replace(/\s+con\s+.+$/, '').replace(/^.*?Jueves de Quack[:\s]*/i, '').trim();
-    return { guest, topic };
-  }
-  return null;
-}
-
-function parseFeed(xml: string) {
-  const entries = extractEntries(xml);
-
+  process.stderr.write('Fetching metadata for each video...\n');
   const sessions: Array<any> = [];
 
-  for (const entry of entries) {
-    const title = extractText(entry, 'title');
+  for (const { id, title: searchTitle } of candidates) {
+    process.stderr.write(`  ${id} ${searchTitle.slice(0, 50)}...`);
+    const meta = fetchVideoMeta(id);
+    if (!meta) {
+      process.stderr.write(' SKIP (unavailable)\n');
+      continue;
+    }
 
-    // Filter only Jueves de Quack sessions
-    if (!title.toLowerCase().includes('jueves de quack')) continue;
+    const title = meta.title;
+    const videoUrl = `https://www.youtube.com/watch?v=${meta.id}`;
+    const thumbnailUrl = meta.thumbnail || `https://i.ytimg.com/vi/${meta.id}/hqdefault.jpg`;
+    const date = formatDate(meta.upload_date ?? '');
 
-    const videoId = extractText(entry, 'yt:videoId');
-    const published = extractText(entry, 'published');
-    const description = extractText(entry, 'media:description') || extractText(entry, 'description');
-
-    const thumbnailUrl =
-      extractAttr(entry, 'media:thumbnail', 'url') ||
-      `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-    const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    const date = published ? published.split('T')[0] : '';
-
-    const speakerInfo = extractSpeakerFromTitle(title);
-    const speakers = speakerInfo?.guest
-      ? [{
-          name: speakerInfo.guest,
-          role: 'Invitado/a',
-          avatarUrl: thumbnailUrl,
-        }]
+    const guest = extractSpeakerFromTitle(title);
+    const speakers = guest
+      ? [{ name: guest, role: 'Invitado/a', avatarUrl: thumbnailUrl }]
       : [];
 
     sessions.push({
       id: slugify(title),
       title,
-      description: description.slice(0, 500),
+      description: (meta.description ?? '').slice(0, 500),
       speakers,
       date,
       videoUrl,
@@ -180,6 +137,7 @@ function parseFeed(xml: string) {
       language: 'es' as const,
       tags: [],
     });
+    process.stderr.write(` OK (${date})\n`);
   }
 
   // Sort by date descending (newest first)
@@ -197,30 +155,23 @@ function parseFeed(xml: string) {
     }
   }
 
-  const sessionsFile = {
+  const sessionsFile = SessionsFileSchema.parse({
     show: {
       name: 'Jueves de Quack',
       channel: 'GitHub',
       channelUrl: 'https://www.youtube.com/@GitHub',
     },
     sessions,
-  };
-
-  return SessionsFileSchema.parse(sessionsFile);
-}
-
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-
-  const { xml, cache } = await fetchFeed(args);
-  const parsed = parseFeed(xml);
+  });
 
   await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
-  await fs.writeFile(OUT_PATH, JSON.stringify(parsed, null, 2) + '\n', 'utf8');
+  await fs.writeFile(OUT_PATH, JSON.stringify(sessionsFile, null, 2) + '\n', 'utf8');
 
-  process.stdout.write(
-    `OK: wrote ${OUT_PATH} (sessions=${parsed.sessions.length}, cache=${cache})\n`
-  );
+  // Also cache the raw result
+  await fs.mkdir(path.dirname(CACHE_PATH), { recursive: true });
+  await fs.writeFile(CACHE_PATH, JSON.stringify(sessionsFile, null, 2) + '\n', 'utf8');
+
+  process.stdout.write(`OK: wrote ${OUT_PATH} (sessions=${sessionsFile.sessions.length})\n`);
 }
 
 main().catch((err) => {
