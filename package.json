@@ -19,13 +19,13 @@
     "generate:all": "npm run generate:assets && npm run generate:covers"
   },
   "dependencies": {
-    "sharp": "^0.33.2",
-    "zod": "^3.24.2"
+    "sharp": "^0.34.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
-    "astro": "^5.5.0",
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.1.10",
     "tsx": "^4.19.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   }
 }
