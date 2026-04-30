@@ -28,6 +28,9 @@ const dateLabel = session?.date
       year: 'numeric',
     })
   : '';
+
+// YYYY-MM key used by the month-filter duck cartridges
+const monthKey = session?.date ? session.date.slice(0, 7) : '';
 ---
 
 <article
@@ -36,6 +39,7 @@ const dateLabel = session?.date
   data-avatar={avatarSrc}
   data-speaker={speaker?.name || session?.title || 'TBA'}
   data-video-url={session?.videoUrl}
+  data-month-key={monthKey}
 >
   <div class="cartridge">
     <div class="case">
