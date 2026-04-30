@@ -1,0 +1,49 @@
+version: 2
+
+updates:
+  # 📦 Dependencias npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "⬆️"
+    labels:
+      - "📦 dependencias"
+    reviewers:
+      - "0GiS0"
+    groups:
+      astro:
+        patterns:
+          - "astro*"
+          - "@astrojs/*"
+      typescript:
+        patterns:
+          - "typescript"
+          - "tsx"
+      linting:
+        patterns:
+          - "eslint*"
+          - "prettier*"
+          - "@eslint/*"
+
+  # 🤖 GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "⬆️"
+    labels:
+      - "📦 dependencias"
+      - "🤖 agentic"
+    reviewers:
+      - "0GiS0"

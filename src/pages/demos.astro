@@ -9,6 +9,12 @@ type Resource = {
   number: string;
 };
 
+type Video = {
+  id: string;
+  title: string;
+  url: string;
+};
+
 const resources: Resource[] = [
   {
     emoji: '🦆',
@@ -32,6 +38,14 @@ const resources: Resource[] = [
     number: '03',
   },
 ];
+
+const videos: Video[] = [
+  { id: 'ccj7ok6s3hA', title: 'Vídeo de Jueves de Quack', url: 'https://youtu.be/ccj7ok6s3hA' },
+  { id: 'TGX30Z9YVnY', title: 'Vídeo de Jueves de Quack', url: 'https://youtu.be/TGX30Z9YVnY' },
+  { id: 'l22L03Mrw2k', title: 'Vídeo de Jueves de Quack', url: 'https://youtu.be/l22L03Mrw2k' },
+  { id: 'r6bPhx6uaVM', title: 'Vídeo de Jueves de Quack', url: 'https://youtu.be/r6bPhx6uaVM' },
+  { id: '15TUwdUgNUc', title: 'Vídeo de Jueves de Quack', url: 'https://youtu.be/15TUwdUgNUc' },
+];
 ---
 
 <BaseLayout
@@ -54,6 +68,25 @@ const resources: Resource[] = [
           <h2 class="demo-title">{r.title}</h2>
           <p class="demo-desc">{r.description}</p>
           <span class="demo-cta">VER →</span>
+        </a>
+      ))}
+    </div>
+
+    <h2 class="section-title">
+      <span class="title-prefix" aria-hidden="true">►</span> VÍDEOS RELACIONADOS
+    </h2>
+
+    <div class="videos-grid">
+      {videos.map((video) => (
+        <a href={video.url} target="_blank" rel="noopener noreferrer" class="video-card pixel-border">
+          <div class="video-thumbnail">
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+              alt={video.title}
+              loading="lazy"
+            />
+            <div class="play-overlay" aria-hidden="true">▶</div>
+          </div>
         </a>
       ))}
     </div>
@@ -136,5 +169,60 @@ const resources: Resource[] = [
     font-size: 0.42rem;
     color: #4ac84a;
     align-self: flex-end;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #f5d060;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    margin: 32px 0 20px;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .video-card {
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(180deg, #1a2640 0%, #0e1525 100%);
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .video-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .video-card:hover .play-overlay {
+    opacity: 1;
   }
 </style>
