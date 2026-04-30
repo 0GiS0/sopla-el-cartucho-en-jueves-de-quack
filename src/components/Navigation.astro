@@ -14,15 +14,17 @@ const links = [
 ---
 
 <nav class="main-nav" aria-label="Primary">
-  {links.map((link) => (
-    <a
-      href={link.href}
-      class:list={['main-nav-link', { active: currentPage === link.id }]}
-      aria-current={currentPage === link.id ? 'page' : undefined}
-    >
-      {link.label}
-    </a>
-  ))}
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        class:list={['main-nav-link', { active: currentPage === link.id }]}
+        aria-current={currentPage === link.id ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))
+  }
 </nav>
 
 <style>
@@ -45,7 +47,9 @@ const links = [
     font-size: 0.65rem;
     color: #1e140a;
     text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition:
+      transform 0.1s,
+      box-shadow 0.1s;
   }
 
   .main-nav-link:hover {

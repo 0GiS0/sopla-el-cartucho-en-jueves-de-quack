@@ -10,8 +10,12 @@
   --border-strong: #2e2418;
   --shadow: 8px 8px 0 rgba(54, 38, 22, 0.45);
 
-  --font-body: 'VT323', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --font-display: 'Press Start 2P', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-body:
+    'VT323', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  --font-display:
+    'Press Start 2P', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
 }
 
 * {
@@ -30,7 +34,7 @@ body {
   background:
     radial-gradient(ellipse at 18% 18%, rgba(255, 252, 235, 0.55) 0%, transparent 38%),
     radial-gradient(ellipse at 82% 8%, rgba(200, 160, 80, 0.12) 0%, transparent 30%),
-    radial-gradient(ellipse at 28% 78%, rgba(180, 140, 70, 0.10) 0%, transparent 32%),
+    radial-gradient(ellipse at 28% 78%, rgba(180, 140, 70, 0.1) 0%, transparent 32%),
     repeating-linear-gradient(
       90deg,
       rgba(126, 90, 46, 0.025) 0px,
@@ -171,7 +175,9 @@ main {
   font-size: 0.65rem;
   color: #2a1e0e;
   line-height: 1;
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,200,0.4);
+  box-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 200, 0.4);
 }
 
 .chrome-nav-row {
@@ -252,7 +258,6 @@ main {
   transform: translate(1px, 1px);
 }
 
-
 /* ───────────── Hero right: title + first card row ───────────── */
 
 .hero-right {
@@ -304,8 +309,13 @@ main {
 }
 
 @keyframes duck-bob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .hero-cards {
@@ -373,9 +383,9 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-      "console"
-      "title"
-      "cards";
+      'console'
+      'title'
+      'cards';
     gap: 20px;
     padding: 18px 18px 14px;
   }
@@ -447,7 +457,6 @@ main {
 }
 
 @media (max-width: 640px) {
-
   /* Simplificar chrome del navegador en móvil */
   .chrome-menu {
     display: none;
@@ -509,7 +518,9 @@ main {
   border-radius: 6px;
   padding: 10px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 4px 4px 0 rgba(54, 38, 22, 0.4);
   display: flex;
   flex-direction: column;
@@ -549,7 +560,9 @@ main {
    Interactive Console: Cartridge selection
 ───────────────────────────────────────────────── */
 .card-wrap {
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
 }
 
 .card-wrap:hover {
@@ -609,7 +622,7 @@ main {
   font-family: var(--font-display);
   font-size: 24px;
   color: #ff4444;
-  text-shadow: 
+  text-shadow:
     2px 2px 0 #880000,
     0 0 10px #ff0000;
   animation: game-over-blink 1s ease-in-out infinite;
@@ -624,13 +637,23 @@ main {
 }
 
 @keyframes game-over-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes game-over-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -638,4 +661,3 @@ main {
     align-items: center;
   }
 }
-

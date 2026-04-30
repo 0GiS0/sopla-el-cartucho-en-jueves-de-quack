@@ -2,48 +2,48 @@ version: 2
 
 updates:
   # 📦 Dependencias npm
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "08:00"
-      timezone: "Europe/Madrid"
+      interval: 'weekly'
+      day: 'monday'
+      time: '08:00'
+      timezone: 'Europe/Madrid'
     open-pull-requests-limit: 10
     commit-message:
-      prefix: "⬆️"
+      prefix: '⬆️'
     labels:
-      - "📦 dependencias"
+      - '📦 dependencias'
     reviewers:
-      - "0GiS0"
+      - '0GiS0'
     groups:
       astro:
         patterns:
-          - "astro*"
-          - "@astrojs/*"
+          - 'astro*'
+          - '@astrojs/*'
       typescript:
         patterns:
-          - "typescript"
-          - "tsx"
+          - 'typescript'
+          - 'tsx'
       linting:
         patterns:
-          - "eslint*"
-          - "prettier*"
-          - "@eslint/*"
+          - 'eslint*'
+          - 'prettier*'
+          - '@eslint/*'
 
   # 🤖 GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "08:00"
-      timezone: "Europe/Madrid"
+      interval: 'weekly'
+      day: 'monday'
+      time: '08:00'
+      timezone: 'Europe/Madrid'
     open-pull-requests-limit: 5
     commit-message:
-      prefix: "⬆️"
+      prefix: '⬆️'
     labels:
-      - "📦 dependencias"
-      - "🤖 agentic"
+      - '📦 dependencias'
+      - '🤖 agentic'
     reviewers:
-      - "0GiS0"
+      - '0GiS0'

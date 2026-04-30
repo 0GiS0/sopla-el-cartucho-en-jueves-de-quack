@@ -16,16 +16,21 @@ const { session, locked = false, lockedLabel = 'PRÓXIMAMENTE...' } = Astro.prop
 const speaker = session?.speakers?.[0];
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const rawAvatar = session?.assets?.avatar8bit ?? session?.thumbnailUrl ?? '/placeholders/avatar.svg';
+const rawAvatar =
+  session?.assets?.avatar8bit ?? session?.thumbnailUrl ?? '/placeholders/avatar.svg';
 const avatarSrc = rawAvatar.startsWith('/') ? `${base}${rawAvatar}` : rawAvatar;
 
 const roleLabel = speaker?.role ?? '';
 const dateLabel = session?.date
-  ? new Date(session.date + 'T00:00:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })
+  ? new Date(session.date + 'T00:00:00').toLocaleDateString('es-ES', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    })
   : '';
 ---
 
-<article 
+<article
   class={locked ? 'card-wrap is-locked' : 'card-wrap'}
   data-talk-id={session?.id}
   data-avatar={avatarSrc}
@@ -34,7 +39,6 @@ const dateLabel = session?.date
 >
   <div class="cartridge">
     <div class="case">
-
       <!-- Front face -->
       <div class="front">
         <div class="base tall"></div>
@@ -48,33 +52,35 @@ const dateLabel = session?.date
         <div class="rightindent"></div>
         <div class="oval"></div>
         <div class="label">
-          {locked ? (
-            <div class="lock-content">
-              <p class="lock-label">{lockedLabel}</p>
-              <span class="lock-icon" aria-hidden="true">🔒</span>
-              <p class="lock-sub">¡BLOQUEADO!</p>
-            </div>
-          ) : (
-            <>
-              <div class="label-top">
-                <h2 class="speaker-name">{speaker?.name || 'TBA'}</h2>
-                <img
-                  class="avatar"
-                  src={avatarSrc}
-                  alt={speaker?.name ?? ''}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <p class="talk-title">{session?.title}</p>
-              <div class="label-bottom">
-                <span class="speaker-role">
-                  {roleLabel}
+          {
+            locked ? (
+              <div class="lock-content">
+                <p class="lock-label">{lockedLabel}</p>
+                <span class="lock-icon" aria-hidden="true">
+                  🔒
                 </span>
-                <span class="rev">{dateLabel}</span>
+                <p class="lock-sub">¡BLOQUEADO!</p>
               </div>
-            </>
-          )}
+            ) : (
+              <>
+                <div class="label-top">
+                  <h2 class="speaker-name">{speaker?.name || 'TBA'}</h2>
+                  <img
+                    class="avatar"
+                    src={avatarSrc}
+                    alt={speaker?.name ?? ''}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <p class="talk-title">{session?.title}</p>
+                <div class="label-bottom">
+                  <span class="speaker-role">{roleLabel}</span>
+                  <span class="rev">{dateLabel}</span>
+                </div>
+              </>
+            )
+          }
         </div>
       </div>
 
@@ -133,7 +139,6 @@ const dateLabel = session?.date
       <div class="bottomside">
         <div class="side"></div>
       </div>
-
     </div>
   </div>
 </article>
@@ -142,20 +147,20 @@ const dateLabel = session?.date
   /* ── Dimensions & palette (scoped to component) ───── */
   .card-wrap {
     --cw: 196px;
-    --ch: 225px;   /* cw × 1.15 */
-    --cd: 20px;    /* cw × 0.1  */
-    --cd2: 10px;   /* cd / 2    */
+    --ch: 225px; /* cw × 1.15 */
+    --cd: 20px; /* cw × 0.1  */
+    --cd2: 10px; /* cd / 2    */
 
-    --c-base:    #a7a9ac;
-    --c-dark:    #939598;
-    --c-darker:  #828487;
+    --c-base: #a7a9ac;
+    --c-dark: #939598;
+    --c-darker: #828487;
     --c-label-bg: #1a2640;
   }
 
   .is-locked {
-    --c-base:    #727477;
-    --c-dark:    #5e6062;
-    --c-darker:  #505254;
+    --c-base: #727477;
+    --c-dark: #5e6062;
+    --c-darker: #505254;
     --c-label-bg: #2e2a38;
   }
 
@@ -166,7 +171,7 @@ const dateLabel = session?.date
     align-items: center;
     justify-content: center;
     min-height: 300px;
-    padding: 24px 36px;   /* room for 3D overflow + tilt */
+    padding: 24px 36px; /* room for 3D overflow + tilt */
   }
 
   /* ── Cartridge container ──────────────────────────── */
@@ -281,8 +286,7 @@ const dateLabel = session?.date
     border-radius: calc(var(--cw) / 50);
     overflow: hidden;
     padding: 8px;
-    background:
-      linear-gradient(160deg, #22375e 0%, #0f1a30 100%);
+    background: linear-gradient(160deg, #22375e 0%, #0f1a30 100%);
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -403,10 +407,18 @@ const dateLabel = session?.date
   }
 
   /* ── Groove line positions (shared by front, back, sides) */
-  .one   { top: calc(9% + (15% / 9) * 1); }
-  .two   { top: calc(9% + (15% / 9) * 3); }
-  .three { top: calc(9% + (15% / 9) * 5); }
-  .four  { top: calc(9% + (15% / 9) * 7); }
+  .one {
+    top: calc(9% + (15% / 9) * 1);
+  }
+  .two {
+    top: calc(9% + (15% / 9) * 3);
+  }
+  .three {
+    top: calc(9% + (15% / 9) * 5);
+  }
+  .four {
+    top: calc(9% + (15% / 9) * 7);
+  }
 
   /* ── Right / Left sides ───────────────────────────── */
   .rightside,
@@ -443,8 +455,12 @@ const dateLabel = session?.date
     width: 100%;
   }
 
-  .rightside .bottom { height: 95%; }
-  .leftside  .bottom { height: 100%; }
+  .rightside .bottom {
+    height: 95%;
+  }
+  .leftside .bottom {
+    height: 100%;
+  }
 
   .rightside .line,
   .leftside .line {
@@ -454,8 +470,12 @@ const dateLabel = session?.date
     width: 100%;
   }
 
-  .rightside .line { transform: translateZ(calc(var(--cw) * 0.02)); }
-  .leftside  .line { transform: translateZ(calc(-1 * var(--cw) * 0.02)); }
+  .rightside .line {
+    transform: translateZ(calc(var(--cw) * 0.02));
+  }
+  .leftside .line {
+    transform: translateZ(calc(-1 * var(--cw) * 0.02));
+  }
 
   .rightside .floor,
   .rightside .ceiling,

@@ -10,7 +10,8 @@ const sessions = sessionsWithAssets;
 // Hero session shown in the console monitor
 const heroSession = sessions[0];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const rawHeroAvatar = heroSession?.assets?.avatar8bit ?? heroSession?.thumbnailUrl ?? '/placeholders/avatar.svg';
+const rawHeroAvatar =
+  heroSession?.assets?.avatar8bit ?? heroSession?.thumbnailUrl ?? '/placeholders/avatar.svg';
 const heroAvatar = rawHeroAvatar.startsWith('/') ? `${base}${rawHeroAvatar}` : rawHeroAvatar;
 
 // Card rows
@@ -26,7 +27,10 @@ const remainingSessions = sessions.slice(3);
   <!-- Hero: console (left) | title + first card row (right) -->
   <section class="hero" id="home" aria-labelledby="site-title">
     <div class="hero-left">
-      <Console avatarSrc={heroAvatar} name={heroSession?.speakers?.[0]?.name ?? heroSession?.title} />
+      <Console
+        avatarSrc={heroAvatar}
+        name={heroSession?.speakers?.[0]?.name ?? heroSession?.title}
+      />
     </div>
 
     <div class="hero-right">
@@ -44,9 +48,7 @@ const remainingSessions = sessions.slice(3);
       </div>
 
       <div class="hero-cards" id="speakers">
-        {firstRow.map((session) => (
-          <CartridgeCard session={session} />
-        ))}
+        {firstRow.map((session) => <CartridgeCard session={session} />)}
       </div>
     </div>
   </section>
@@ -54,9 +56,7 @@ const remainingSessions = sessions.slice(3);
   <!-- Remaining session rows -->
   <section class="speakers-panel" aria-label="Más sesiones">
     <div class="cartridge-grid">
-      {remainingSessions.map((session) => (
-        <CartridgeCard session={session} />
-      ))}
+      {remainingSessions.map((session) => <CartridgeCard session={session} />)}
     </div>
   </section>
 
@@ -67,7 +67,7 @@ const remainingSessions = sessions.slice(3);
       const cartridges = document.querySelectorAll('.card-wrap[data-talk-id]');
       const display = document.querySelector('.display') as HTMLElement;
       const startBtn = document.getElementById('gameboy-start');
-      
+
       if (!screen || cartridges.length === 0 || !display) return;
 
       let selectedVideoUrl: string | null = null;
@@ -89,18 +89,22 @@ const remainingSessions = sessions.slice(3);
         if (!sharedAudioCtx) {
           try {
             sharedAudioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-          } catch (_) {
+          } catch {
             return null;
           }
         }
         return sharedAudioCtx;
       }
 
-      document.addEventListener('click', function unlockAudio() {
-        const ctx = getAudioContext();
-        if (ctx && ctx.state === 'suspended') ctx.resume();
-        document.removeEventListener('click', unlockAudio, true);
-      }, true);
+      document.addEventListener(
+        'click',
+        function unlockAudio() {
+          const ctx = getAudioContext();
+          if (ctx && ctx.state === 'suspended') ctx.resume();
+          document.removeEventListener('click', unlockAudio, true);
+        },
+        true
+      );
 
       function playGameOverSound() {
         const audioCtx = getAudioContext();
@@ -108,7 +112,7 @@ const remainingSessions = sessions.slice(3);
 
         const notes = [523, 392, 330, 262];
         const duration = 0.2;
-        
+
         notes.forEach((freq, i) => {
           const osc = audioCtx.createOscillator();
           const gain = audioCtx.createGain();
@@ -116,7 +120,7 @@ const remainingSessions = sessions.slice(3);
           osc.frequency.value = freq;
           osc.connect(gain);
           gain.connect(audioCtx.destination);
-          const startTime = audioCtx.currentTime + (i * duration);
+          const startTime = audioCtx.currentTime + i * duration;
           gain.gain.setValueAtTime(0.1, startTime);
           gain.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
           osc.start(startTime);
@@ -138,7 +142,7 @@ const remainingSessions = sessions.slice(3);
             osc.frequency.value = freq;
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-            const startTime = audioCtx.currentTime + (i * duration);
+            const startTime = audioCtx.currentTime + i * duration;
             gain.gain.setValueAtTime(0.08, startTime);
             gain.gain.exponentialRampToValueAtTime(0.01, startTime + duration);
             osc.start(startTime);
@@ -167,13 +171,13 @@ const remainingSessions = sessions.slice(3);
       // Select a cartridge and update Console screen
       function selectCartridge(card: HTMLElement, playSound = true) {
         hideGameOver();
-        cartridges.forEach(c => c.classList.remove('is-selected'));
+        cartridges.forEach((c) => c.classList.remove('is-selected'));
         card.classList.add('is-selected');
-        
+
         const avatar = card.getAttribute('data-avatar');
         const speaker = card.getAttribute('data-speaker');
         selectedVideoUrl = card.getAttribute('data-video-url');
-        
+
         if (avatar && screen) {
           screen.style.opacity = '0';
           setTimeout(() => {
@@ -192,7 +196,7 @@ const remainingSessions = sessions.slice(3);
       }
 
       // Click on cartridge → load in console
-      cartridges.forEach(card => {
+      cartridges.forEach((card) => {
         card.addEventListener('click', () => {
           selectCartridge(card as HTMLElement, true);
         });

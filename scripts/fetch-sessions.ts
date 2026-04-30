@@ -39,10 +39,11 @@ function formatDate(yyyymmdd: string): string {
  */
 function discoverVideoIds(): Array<{ id: string; title: string }> {
   process.stderr.write('Searching channel for Jueves de Quack videos...\n');
-  const raw = execSync(
-    `yt-dlp --flat-playlist -j "${SEARCH_URL}"`,
-    { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024, timeout: 60_000 }
-  );
+  const raw = execSync(`yt-dlp --flat-playlist -j "${SEARCH_URL}"`, {
+    encoding: 'utf8',
+    maxBuffer: 10 * 1024 * 1024,
+    timeout: 60_000,
+  });
 
   const results: Array<{ id: string; title: string }> = [];
   for (const line of raw.split('\n').filter(Boolean)) {
@@ -55,7 +56,9 @@ function discoverVideoIds(): Array<{ id: string; title: string }> {
       if (QUACK_PATTERN.test(title)) {
         results.push({ id, title });
       }
-    } catch { /* skip malformed lines */ }
+    } catch {
+      /* skip malformed lines */
+    }
   }
 
   process.stderr.write(`  Found ${results.length} candidate videos\n`);
@@ -121,9 +124,7 @@ async function main() {
     const date = formatDate(meta.upload_date ?? '');
 
     const guest = extractSpeakerFromTitle(title);
-    const speakers = guest
-      ? [{ name: guest, role: 'Invitado/a', avatarUrl: thumbnailUrl }]
-      : [];
+    const speakers = guest ? [{ name: guest, role: 'Invitado/a', avatarUrl: thumbnailUrl }] : [];
 
     sessions.push({
       id: slugify(title),

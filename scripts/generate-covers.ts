@@ -187,11 +187,11 @@ function buildBackgroundSvg({ sessionId }: { sessionId: string }) {
   <!-- dotted pattern -->
   <g opacity="0.25" fill="#ffffff">
     ${Array.from({ length: Math.ceil(COVER_H / dotStep) }, (_, yi) => {
-      const y = yi * dotStep + ((seed % dotStep) / 2);
+      const y = yi * dotStep + (seed % dotStep) / 2;
       const rowShift = (yi % 2) * (dotStep / 2);
       const cols = Math.ceil(COVER_W / dotStep);
       return Array.from({ length: cols }, (_, xi) => {
-        const x = xi * dotStep + rowShift + ((s2 % dotStep) / 2);
+        const x = xi * dotStep + rowShift + (s2 % dotStep) / 2;
         if (x > COVER_W || y > COVER_H) return '';
         return `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${dotR}" />`;
       }).join('');
@@ -394,7 +394,7 @@ async function main() {
       `covers: generated=${generated} skipped=${skipped}`,
       `assetsUpdated=${updatedAssets}`,
       force ? 'mode=force' : 'mode=cache',
-    ].join(' | ') + '\n',
+    ].join(' | ') + '\n'
   );
 }
 

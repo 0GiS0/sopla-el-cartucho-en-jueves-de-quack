@@ -19,21 +19,24 @@ const resources: Resource[] = [
   {
     emoji: '🦆',
     title: 'Canal de GitHub en YouTube',
-    description: 'El canal oficial de GitHub con contenido en español e inglés. Aquí se emiten los Jueves de Quack en directo.',
+    description:
+      'El canal oficial de GitHub con contenido en español e inglés. Aquí se emiten los Jueves de Quack en directo.',
     link: 'https://www.youtube.com/@GitHub',
     number: '01',
   },
   {
     emoji: '📦',
     title: 'Repositorio Comunitario',
-    description: 'El repo oficial de Jueves de Quack donde puedes proponer temas, reportar issues y contribuir.',
+    description:
+      'El repo oficial de Jueves de Quack donde puedes proponer temas, reportar issues y contribuir.',
     link: 'https://github.com/githubevents/jueves-de-quack',
     number: '02',
   },
   {
     emoji: '🤖',
     title: 'GitHub Copilot',
-    description: 'Tu asistente de programación con IA. Uno de los temas más frecuentes en las sesiones de Jueves de Quack.',
+    description:
+      'Tu asistente de programación con IA. Uno de los temas más frecuentes en las sesiones de Jueves de Quack.',
     link: 'https://github.com/features/copilot',
     number: '03',
   },
@@ -59,17 +62,19 @@ const videos: Video[] = [
     </h1>
 
     <div class="demos-grid">
-      {resources.map((r) => (
-        <a href={r.link} target="_blank" rel="noopener noreferrer" class="demo-card pixel-border">
-          <div class="demo-header">
-            <span class="demo-number">{r.number}</span>
-            <span class="demo-emoji">{r.emoji}</span>
-          </div>
-          <h2 class="demo-title">{r.title}</h2>
-          <p class="demo-desc">{r.description}</p>
-          <span class="demo-cta">VER →</span>
-        </a>
-      ))}
+      {
+        resources.map((r) => (
+          <a href={r.link} target="_blank" rel="noopener noreferrer" class="demo-card pixel-border">
+            <div class="demo-header">
+              <span class="demo-number">{r.number}</span>
+              <span class="demo-emoji">{r.emoji}</span>
+            </div>
+            <h2 class="demo-title">{r.title}</h2>
+            <p class="demo-desc">{r.description}</p>
+            <span class="demo-cta">VER →</span>
+          </a>
+        ))
+      }
     </div>
 
     <h2 class="section-title">
@@ -77,18 +82,27 @@ const videos: Video[] = [
     </h2>
 
     <div class="videos-grid">
-      {videos.map((video) => (
-        <a href={video.url} target="_blank" rel="noopener noreferrer" class="video-card pixel-border">
-          <div class="video-thumbnail">
-            <img
-              src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-              alt={video.title}
-              loading="lazy"
-            />
-            <div class="play-overlay" aria-hidden="true">▶</div>
-          </div>
-        </a>
-      ))}
+      {
+        videos.map((video) => (
+          <a
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="video-card pixel-border"
+          >
+            <div class="video-thumbnail">
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                alt={video.title}
+                loading="lazy"
+              />
+              <div class="play-overlay" aria-hidden="true">
+                ▶
+              </div>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
@@ -104,10 +118,13 @@ const videos: Video[] = [
     font-family: var(--font-display);
     font-size: 1rem;
     color: #f5d060;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
     margin-bottom: 24px;
   }
-  .title-prefix { color: #4ac84a; margin-right: 8px; }
+  .title-prefix {
+    color: #4ac84a;
+    margin-right: 8px;
+  }
 
   .demos-grid {
     display: grid;
@@ -117,7 +134,9 @@ const videos: Video[] = [
 
   .pixel-border {
     border: 3px solid var(--border-strong, #3a3a3a);
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.05);
+    box-shadow:
+      4px 4px 0 rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
   .demo-card {
@@ -127,11 +146,15 @@ const videos: Video[] = [
     display: flex;
     flex-direction: column;
     gap: 8px;
-    transition: transform 0.15s, box-shadow 0.15s;
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
   }
   .demo-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+    box-shadow:
+      6px 6px 0 rgba(0, 0, 0, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
   .demo-header {
@@ -147,13 +170,15 @@ const videos: Video[] = [
     padding: 2px 8px;
     border: 1px solid #1e3a1e;
   }
-  .demo-emoji { font-size: 1.5rem; }
+  .demo-emoji {
+    font-size: 1.5rem;
+  }
 
   .demo-title {
     font-family: var(--font-display);
     font-size: 0.55rem;
     color: #f5d060;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
     margin: 0;
   }
   .demo-desc {
@@ -175,7 +200,7 @@ const videos: Video[] = [
     font-family: var(--font-display);
     font-size: 1rem;
     color: #f5d060;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
     margin: 32px 0 20px;
   }
 
@@ -190,11 +215,15 @@ const videos: Video[] = [
     text-decoration: none;
     background: linear-gradient(180deg, #1a2640 0%, #0e1525 100%);
     overflow: hidden;
-    transition: transform 0.15s, box-shadow 0.15s;
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
   }
   .video-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+    box-shadow:
+      6px 6px 0 rgba(0, 0, 0, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
   .video-thumbnail {
