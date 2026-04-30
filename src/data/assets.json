@@ -2,8 +2,9 @@
   "assets": [
     {
       "sessionId": "jueves-de-quack-con-gis-torres",
+      "cover": "/assets/covers/gis-torres.png",
       "avatarOriginal": "/assets/avatars/original/gis-torres.jpg",
-      "avatar8bit": "/assets/avatars/gis-torres.png"
+      "avatar8bit": "/assets/covers/gis-torres.png"
     },
     {
       "sessionId": "jueves-de-quack-lo-nuevo-en-github-copilot-cli",
