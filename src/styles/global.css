@@ -661,3 +661,178 @@ main {
     align-items: center;
   }
 }
+
+/* ─────────────────────────────────────────────────
+   Modo oscuro — retro Game Boy original
+───────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel2: #0f1318;
+    --text: #e2d9c8;
+    --muted: #8b949e;
+    --accent: #d4a017;
+    --accent-dark: #926e08;
+    --border: #30363d;
+    --border-strong: #6e7681;
+    --shadow: 8px 8px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at 18% 18%, rgba(80, 60, 20, 0.15) 0%, transparent 38%),
+      radial-gradient(ellipse at 82% 8%, rgba(60, 40, 10, 0.08) 0%, transparent 30%),
+      repeating-linear-gradient(
+        90deg,
+        rgba(80, 60, 20, 0.04) 0px,
+        rgba(80, 60, 20, 0.04) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(80, 60, 20, 0.04) 0px,
+        rgba(80, 60, 20, 0.04) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      linear-gradient(170deg, #1a1a2a 0%, #0d0d18 100%);
+    color: var(--text);
+  }
+
+  /* CRT scanlines en oscuro más pronunciadas */
+  .crt::before {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 100, 0.04),
+      rgba(0, 255, 100, 0.04) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    opacity: 0.4;
+  }
+
+  .desktop-window {
+    background:
+      linear-gradient(180deg, rgba(30, 30, 50, 0.9), rgba(15, 15, 30, 0.8)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 200, 80, 0.03),
+        rgba(0, 200, 80, 0.03) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      var(--panel);
+    box-shadow:
+      var(--shadow),
+      inset 0 0 0 1px rgba(100, 80, 20, 0.2);
+  }
+
+  .pixel-frame {
+    outline-color: #4a3a10;
+  }
+
+  /* Chrome del navegador */
+  .window-chrome {
+    border-bottom-color: rgba(80, 60, 20, 0.4);
+  }
+
+  .chrome-left {
+    background: linear-gradient(180deg, rgba(40, 30, 10, 0.3), transparent);
+    border-bottom-color: rgba(80, 60, 20, 0.2);
+  }
+
+  .chrome-star {
+    color: #8b7020;
+  }
+
+  .chrome-menu {
+    color: #6e5818;
+  }
+
+  .chrome-buttons span {
+    background: linear-gradient(180deg, #2a2010, #1a1408);
+    border-color: #4a3a10;
+    color: #a08030;
+    box-shadow:
+      1px 1px 0 rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(200, 160, 40, 0.15);
+  }
+
+  .nav-arrows {
+    color: #8b7020;
+  }
+
+  .address-bar {
+    background: rgba(20, 15, 5, 0.85);
+    border-color: rgba(80, 60, 20, 0.5);
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-left-color: rgba(0, 0, 0, 0.5);
+    color: #c8b060;
+  }
+
+  /* Navegación lateral */
+  .side-nav a {
+    background: linear-gradient(180deg, #2a1e08, #1a1204);
+    border-color: #4a3a10;
+    box-shadow:
+      3px 3px 0 rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(200, 160, 40, 0.1);
+    color: #c8a040;
+  }
+
+  .side-nav a:hover {
+    background: linear-gradient(180deg, #3a2a10, #261a08);
+    box-shadow:
+      2px 2px 0 rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(200, 160, 40, 0.1);
+  }
+
+  /* Hero */
+  .hero {
+    border-bottom-color: rgba(80, 60, 20, 0.35);
+  }
+
+  .hero-title h1 {
+    color: #d4a017;
+    text-shadow:
+      4px 4px 0 #1a1040,
+      -2px -2px 0 #2a1800,
+      2px -2px 0 #2a1800,
+      -2px 2px 0 #2a1800;
+  }
+
+  .event-name {
+    color: #4a7acc;
+    text-shadow: 1px 1px 0 rgba(40, 60, 120, 0.4);
+  }
+
+  /* Footer */
+  .site-footer {
+    border-top-color: rgba(80, 60, 20, 0.5);
+    color: #8b7020;
+  }
+
+  /* QR Code */
+  .qr-code-wrapper {
+    background: var(--panel);
+    border-color: var(--border-strong);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .qr-label {
+    color: var(--muted);
+  }
+
+  /* Cartridge card — is-selected */
+  .card-wrap.is-selected {
+    filter: drop-shadow(0 8px 16px rgba(212, 160, 23, 0.4));
+  }
+
+  .card-wrap.is-selected::after {
+    color: var(--accent);
+    background: var(--border-strong);
+  }
+}
