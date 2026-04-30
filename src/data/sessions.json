@@ -6,6 +6,24 @@
   },
   "sessions": [
     {
+      "id": "jueves-de-quack-con-gis-torres",
+      "title": "Jueves de Quack con Gis Torres",
+      "description": "Jueves de Quack con Gis Torres",
+      "speakers": [
+        {
+          "name": "Gis Torres",
+          "role": "Host",
+          "avatarUrl": "https://i.ytimg.com/vi/VMPap6uuErU/maxresdefault.jpg"
+        }
+      ],
+      "date": "2026-04-30",
+      "videoUrl": "https://www.youtube.com/watch?v=VMPap6uuErU",
+      "thumbnailUrl": "https://i.ytimg.com/vi/VMPap6uuErU/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
       "id": "jueves-de-quack-lo-nuevo-en-github-copilot-cli",
       "title": "Jueves de Quack - Lo nuevo en GitHub Copilot CLI",
       "description": "Hoy exploramos GitHub Copilot CLI, la herramienta que está revolucionando cómo desarrollamos desde la terminal. Además, iniciamos el proyecto \"Open Source Hunt\" basado en la discusión comunitaria con @sergio-jc. https://github.com/githubevents/jueves-de-quack/discussions/2",
