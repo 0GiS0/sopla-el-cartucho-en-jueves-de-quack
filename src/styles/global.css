@@ -295,6 +295,20 @@ main {
   padding-right: 80px;
 }
 
+.duck-decoration {
+  width: clamp(70px, 10vw, 130px);
+  height: auto;
+  transform: scaleX(-1);
+  flex-shrink: 0;
+  animation: duck-bob 1.8s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+
+@keyframes duck-bob {
+  0%, 100% { transform: scaleX(-1) translateY(0); }
+  50%       { transform: scaleX(-1) translateY(-10px); }
+}
+
 .hero-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
