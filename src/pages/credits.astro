@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const credits = [
+  {
+    component: 'Console.astro',
+    title: 'Game Boy CSS art',
+    author: 'Brandon',
+    url: 'https://codepen.io/brundolf/pen/beagbQ',
+    description: 'Diseño retro de Game Boy Color utilizado para mostrar los avatares de los speakers.',
+    license: 'MIT License',
+  },
+  {
+    component: 'CartridgeCard.astro',
+    title: 'Game Boy cartridge',
+    author: 'Van Huynh',
+    url: 'https://codepen.io/worksbyvan/pen/MoxroE',
+    description: 'Cartucho de Game Boy en 3D utilizado para las tarjetas de sesiones.',
+    license: 'MIT License',
+  },
+];
+---
+
+<BaseLayout
+  title="Créditos — Jueves de Quack"
+  description="Reconocimiento a los autores originales de los diseños retro usados en Jueves de Quack."
+  currentPage="credits"
+>
+  <section class="credits-page">
+    <h1 class="page-title">
+      <span class="title-prefix" aria-hidden="true">►</span> CRÉDITOS
+    </h1>
+
+    <div class="intro-text pixel-border">
+      <p>
+        Este proyecto utiliza diseños retro originalmente creados por talentosos desarrolladores de
+        la comunidad de CodePen. Agradecemos su trabajo y compartimos sus creaciones bajo licencia MIT.
+      </p>
+    </div>
+
+    <div class="credits-grid">
+      {
+        credits.map((credit) => (
+          <article class="credit-card pixel-border">
+            <div class="credit-header">
+              <h2 class="credit-title">{credit.title}</h2>
+              <span class="credit-component">{credit.component}</span>
+            </div>
+
+            <p class="credit-description">{credit.description}</p>
+
+            <div class="credit-author">
+              <span class="author-label">AUTOR:</span>
+              <span class="author-name">{credit.author}</span>
+            </div>
+
+            <div class="credit-license">
+              <span class="license-label">LICENCIA:</span>
+              <span class="license-name">{credit.license}</span>
+            </div>
+
+            <a
+              href={credit.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="credit-link pixel-border"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span>VER EN CODEPEN</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="footer-note pixel-border">
+      <h3 class="footer-title">🙏 Gracias a la comunidad</h3>
+      <p>
+        Estos diseños fueron compartidos bajo licencia MIT, lo que permite su uso y modificación.
+        Si te gusta este proyecto, visita los enlaces originales y apoya a los creadores.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .credits-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #4ac84a;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 24px;
+  }
+
+  .title-prefix {
+    margin-right: 8px;
+    color: #4ac84a;
+  }
+
+  .pixel-border {
+    border: 3px solid var(--border-strong, #3a3a3a);
+    box-shadow:
+      4px 4px 0 rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Intro text */
+  .intro-text {
+    background: linear-gradient(180deg, #1a2640 0%, #0e1525 100%);
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .intro-text p {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: #8aa8c8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Credits grid */
+  .credits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .credits-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Credit card */
+  .credit-card {
+    background: linear-gradient(180deg, #1a2640 0%, #0e1525 100%);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .credit-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 2px solid rgba(74, 200, 74, 0.3);
+    padding-bottom: 8px;
+  }
+
+  .credit-title {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    color: #f5d060;
+    margin: 0;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .credit-component {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: #6a8aaa;
+  }
+
+  .credit-description {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #8aa8c8;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .credit-author,
+  .credit-license {
+    display: flex;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .author-label,
+  .license-label {
+    color: #6a8aaa;
+    min-width: 70px;
+  }
+
+  .author-name,
+  .license-name {
+    color: #a8c8e8;
+  }
+
+  /* Credit link */
+  .credit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(180deg, #22375e, #152040);
+    padding: 8px 14px;
+    color: #a8c8e8;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 0.42rem;
+    transition:
+      background 0.2s,
+      color 0.2s;
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .credit-link:hover {
+    background: linear-gradient(180deg, #2e4880, #1e3060);
+    color: #f5d060;
+  }
+
+  .credit-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Footer note */
+  .footer-note {
+    background: linear-gradient(180deg, #1e3a1e 0%, #0f1e0f 100%);
+    padding: 16px;
+  }
+
+  .footer-title {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    color: #4ac84a;
+    margin: 0 0 8px;
+  }
+
+  .footer-note p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #8aa8c8;
+    line-height: 1.45;
+    margin: 0;
+  }
+</style>
