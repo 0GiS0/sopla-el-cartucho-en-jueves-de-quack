@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CartridgeCard from '../components/CartridgeCard.astro';
+import DuckCartridgeFilter from '../components/DuckCartridgeFilter.astro';
 import Console from '../components/Console.astro';
 import { sessionsWithAssets, show } from '../lib/talks';
 
@@ -17,6 +18,57 @@ const heroAvatar = rawHeroAvatar.startsWith('/') ? `${base}${rawHeroAvatar}` : r
 // Card rows
 const firstRow = sessions.slice(0, 3);
 const remainingSessions = sessions.slice(3);
+
+// Build grid items: sessions interleaved with duck-cartridge month separators
+type GridItem =
+  | { type: 'session'; session: (typeof remainingSessions)[number] }
+  | { type: 'separator'; month: string; year: string; monthKey: string };
+
+const MONTHS_ES = [
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre',
+];
+
+function getMonthKey(dateStr: string): string {
+  // Validate YYYY-MM format before slicing
+  return /^\d{4}-\d{2}/.test(dateStr) ? dateStr.slice(0, 7) : '';
+}
+
+function monthLabel(monthKey: string): { month: string; year: string } {
+  const parts = monthKey.split('-');
+  const y = parts[0] ?? '';
+  const mNum = parseInt(parts[1] ?? '', 10);
+  const month = !isNaN(mNum) && mNum >= 1 && mNum <= 12 ? MONTHS_ES[mNum - 1]! : monthKey;
+  return { month: month.toUpperCase(), year: y };
+}
+
+const gridItems: GridItem[] = [];
+let lastMonthKey = '';
+
+for (const session of remainingSessions) {
+  const key = session.date ? getMonthKey(session.date) : '';
+  if (!key) {
+    // Sessions without a valid date are included but get no separator
+    gridItems.push({ type: 'session', session });
+    continue;
+  }
+  if (key !== lastMonthKey) {
+    const { month, year } = monthLabel(key);
+    gridItems.push({ type: 'separator', month, year, monthKey: key });
+    lastMonthKey = key;
+  }
+  gridItems.push({ type: 'session', session });
+}
 ---
 
 <BaseLayout
@@ -40,9 +92,15 @@ const remainingSessions = sessions.slice(3);
           <p class="event-name">🦆 {show.name}</p>
         </div>
         <img
+          src={`${base}/assets/retro-quack-glasses.png`}
+          alt="Pato de goma"
+          class="duck-decoration duck-light"
+          aria-hidden="true"
+        />
+        <img
           src={`${base}/assets/retro-duck.png`}
           alt="Pato de goma"
-          class="duck-decoration"
+          class="duck-decoration duck-dark"
           aria-hidden="true"
         />
       </div>
@@ -55,8 +113,22 @@ const remainingSessions = sessions.slice(3);
 
   <!-- Remaining session rows -->
   <section class="speakers-panel" aria-label="Más sesiones">
-    <div class="cartridge-grid">
-      {remainingSessions.map((session) => <CartridgeCard session={session} />)}
+    <div class="filter-bar">
+      <span id="filter-status" class="sr-only" aria-live="polite" aria-atomic="true"></span>
+      <button id="show-all-btn" class="show-all-btn is-hidden" aria-label="Ver todas las sesiones">
+        🐤 VER TODAS
+      </button>
+    </div>
+    <div class="cartridge-grid" id="cartridge-grid">
+      {
+        gridItems.map((item) =>
+          item.type === 'separator' ? (
+            <DuckCartridgeFilter month={item.month} year={item.year} monthKey={item.monthKey} />
+          ) : (
+            <CartridgeCard session={item.session} />
+          )
+        )
+      }
     </div>
   </section>
 
@@ -220,6 +292,58 @@ const remainingSessions = sessions.slice(3);
       } else {
         setTimeout(() => showGameOver(), 4000);
       }
+
+      // ── Duck cartridge month filters ──────────────────────────
+      const duckFilters = document.querySelectorAll<HTMLButtonElement>('.duck-filter-wrap');
+      const showAllBtn = document.getElementById('show-all-btn') as HTMLButtonElement | null;
+      const filterStatus = document.getElementById('filter-status');
+      const allGridCards = document.querySelectorAll<HTMLElement>('#cartridge-grid .card-wrap');
+
+      let activeMonthKey: string | null = null;
+
+      function applyFilter(monthKey: string | null) {
+        activeMonthKey = monthKey;
+
+        // Toggle active state on duck buttons
+        duckFilters.forEach((btn) => {
+          btn.classList.toggle('is-active', btn.dataset.monthKey === monthKey);
+        });
+
+        // Show/hide session cards via CSS class (not inline style)
+        let visibleCount = 0;
+        allGridCards.forEach((card) => {
+          const visible = monthKey === null || card.dataset.monthKey === monthKey;
+          card.classList.toggle('month-hidden', !visible);
+          card.setAttribute('aria-hidden', visible ? 'false' : 'true');
+          if (visible) visibleCount++;
+        });
+
+        // Announce filter change for screen readers
+        if (filterStatus) {
+          filterStatus.textContent =
+            monthKey === null
+              ? 'Mostrando todas las sesiones.'
+              : `Mostrando ${visibleCount} sesión${visibleCount !== 1 ? 'es' : ''} de ${monthKey}.`;
+        }
+
+        // Show/hide "Ver todas" button via CSS class
+        showAllBtn?.classList.toggle('is-hidden', monthKey === null);
+      }
+
+      // is-hidden is already set in the HTML; just wire up the click handler
+      showAllBtn?.addEventListener('click', () => applyFilter(null));
+
+      duckFilters.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.monthKey ?? null;
+          if (key === activeMonthKey) {
+            // Click again → deactivate filter
+            applyFilter(null);
+          } else {
+            applyFilter(key);
+          }
+        });
+      });
     });
   </script>
 </BaseLayout>
