@@ -22,25 +22,24 @@ tools:
 
 safe-outputs:
   add-comment:
-    max: 1    
+    max: 1
   add-labels:
     max: 2
     allowed:
       [
-        "🐤 quack-feature",
-        "🎮 UI/UX",
-        "🎨 diseño",
-        "⚡ rendimiento",
-        "✨ mejora",
-        "🐛 bug",
-        "📝 documentación",
-        "📺 contenido",
-        "🔧 refactor",
-        "🤖 agentic",
+        '🐤 quack-feature',
+        '🎮 UI/UX',
+        '🎨 diseño',
+        '⚡ rendimiento',
+        '✨ mejora',
+        '🐛 bug',
+        '📝 documentación',
+        '📺 contenido',
+        '🔧 refactor',
+        '🤖 agentic',
       ]
-        
-  update-issue:
 
+  update-issue:
 ---
 
 # Mejorador de Issues

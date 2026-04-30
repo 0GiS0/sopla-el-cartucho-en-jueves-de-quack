@@ -22,12 +22,12 @@ Cada sesión se representa como un **cartucho de Game Boy**. Al hacer click en u
 
 ## 🚀 Stack tecnológico
 
-| Tecnología | Uso |
-|---|---|
-| [Astro](https://astro.build/) | Framework web estático (SSG) |
-| [TypeScript](https://www.typescriptlang.org/) | Tipado estático en todo el proyecto |
-| [Sharp](https://sharp.pixelplumbing.com/) | Pipeline de generación de assets pixel art |
-| CSS Custom Properties | Theming retro sin dependencias externas |
+| Tecnología                                    | Uso                                        |
+| --------------------------------------------- | ------------------------------------------ |
+| [Astro](https://astro.build/)                 | Framework web estático (SSG)               |
+| [TypeScript](https://www.typescriptlang.org/) | Tipado estático en todo el proyecto        |
+| [Sharp](https://sharp.pixelplumbing.com/)     | Pipeline de generación de assets pixel art |
+| CSS Custom Properties                         | Theming retro sin dependencias externas    |
 
 ## 🛠️ Instalación y desarrollo local
 
@@ -75,9 +75,9 @@ scripts/
 
 El diseño retro se basa en trabajos publicados en CodePen bajo licencia MIT:
 
-| Componente | Autor | Enlace |
-|---|---|---|
-| Game Boy CSS art (`Console.astro`) | Brandon | [codepen.io/brundolf/pen/beagbQ](https://codepen.io/brundolf/pen/beagbQ) |
+| Componente                                 | Autor     | Enlace                                                                       |
+| ------------------------------------------ | --------- | ---------------------------------------------------------------------------- |
+| Game Boy CSS art (`Console.astro`)         | Brandon   | [codepen.io/brundolf/pen/beagbQ](https://codepen.io/brundolf/pen/beagbQ)     |
 | Game Boy cartridge (`CartridgeCard.astro`) | Van Huynh | [codepen.io/worksbyvan/pen/MoxroE](https://codepen.io/worksbyvan/pen/MoxroE) |
 
 ## 📄 Licencia

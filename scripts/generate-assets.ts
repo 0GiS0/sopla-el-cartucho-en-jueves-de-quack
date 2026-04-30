@@ -105,13 +105,29 @@ async function downloadIfNeeded(url: string, outPath: string, force: boolean) {
   return { skipped: false };
 }
 
-async function runGenerateAvatars({ inputPath, slug, force }: { inputPath: string; slug: string; force: boolean }) {
+async function runGenerateAvatars({
+  inputPath,
+  slug,
+  force,
+}: {
+  inputPath: string;
+  slug: string;
+  force: boolean;
+}) {
   const outPng = path.join(AVATAR8_DIR_FS, `${slug}.png`);
   if (!force && (await fileExists(outPng))) return { skipped: true };
 
   await fs.mkdir(AVATAR8_DIR_FS, { recursive: true });
 
-  const args = ['scripts-generate-avatars.mjs', '--input', inputPath, '--slug', slug, '--outDir', AVATAR8_DIR_FS];
+  const args = [
+    'scripts-generate-avatars.mjs',
+    '--input',
+    inputPath,
+    '--slug',
+    slug,
+    '--outDir',
+    AVATAR8_DIR_FS,
+  ];
   if (force) args.push('--overwrite');
 
   await new Promise<void>((resolve, reject) => {
@@ -224,8 +240,7 @@ async function main() {
       `downloaded=${downloaded} skipped=${downloadedSkipped}`,
       `generated=${generated} skipped=${generatedSkipped}`,
       force ? 'mode=force' : 'mode=cache',
-    ].join(' | ') +
-      '\n',
+    ].join(' | ') + '\n'
   );
 }
 
