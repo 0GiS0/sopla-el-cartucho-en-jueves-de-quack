@@ -21,16 +21,25 @@
 
 ## 📑 Tabla de Contenidos
 
-- [Características](#-características)
-- [Demo](#-demo)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [Requisitos Previos](#-requisitos-previos)
-- [Instalación](#-instalación)
-- [Uso](#-uso)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Créditos de Diseño](#-créditos-de-diseño-codepen)
-- [Licencia](#-licencia)
-- [Sígueme](#-sígueme-en-mis-redes-sociales)
+- [🦆 Jueves de Quack — Sopla el Cartucho](#-jueves-de-quack--sopla-el-cartucho)
+  - [📑 Tabla de Contenidos](#-tabla-de-contenidos)
+  - [✨ Características](#-características)
+  - [🌐 Demo](#-demo)
+  - [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
+  - [� Requisitos Previos](#-requisitos-previos)
+  - [🚀 Instalación](#-instalación)
+    - [Paso 1: Clonar el repositorio](#paso-1-clonar-el-repositorio)
+    - [Paso 2: Instalar dependencias](#paso-2-instalar-dependencias)
+    - [Paso 3: Descargar sesiones desde YouTube RSS](#paso-3-descargar-sesiones-desde-youtube-rss)
+    - [Paso 4: Iniciar servidor de desarrollo](#paso-4-iniciar-servidor-de-desarrollo)
+  - [💻 Uso](#-uso)
+    - [Desarrollo local](#desarrollo-local)
+    - [Generación de assets](#generación-de-assets)
+    - [Calidad de código](#calidad-de-código)
+  - [📁 Estructura del proyecto](#-estructura-del-proyecto)
+  - [🎨 Créditos de diseño (CodePen)](#-créditos-de-diseño-codepen)
+  - [📄 Licencia](#-licencia)
+  - [🌐 Sígueme en Mis Redes Sociales](#-sígueme-en-mis-redes-sociales)
 
 ## ✨ Características
 
