@@ -1,16 +1,34 @@
 # 🦆 Jueves de Quack — Sopla el Cartucho
 
-<p align="center">
-  <a href="https://0GiS0.github.io/sopla-el-cartucho-en-jueves-de-quack"><img src="https://img.shields.io/badge/🌐_Web-GitHub_Pages-brightgreen?style=for-the-badge" alt="GitHub Pages"></a>
-  <a href="https://www.youtube.com/@GitHub"><img src="https://img.shields.io/badge/YouTube-GitHub-red?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"></a>
-  <a href="https://github.com/0GiS0"><img src="https://img.shields.io/github/followers/0GiS0?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
-</p>
+<div align="center">
+
+[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UC140iBrEZbOtvxWsJ-Tb0lQ?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/c/GiselaTorres?sub_confirmation=1)
+[![GitHub followers](https://img.shields.io/github/followers/0GiS0?style=for-the-badge&logo=github&logoColor=white)](https://github.com/0GiS0)
+[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Sígueme-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/giselatorresbuitrago/)
+[![X Follow](https://img.shields.io/badge/X-Sígueme-black?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/0GiS0)
+
+</div>
 
 ---
 
-Una web retro con estilo **Game Boy** que muestra las sesiones de **Jueves de Quack**, la iniciativa comunitaria del canal de [GitHub en YouTube](https://www.youtube.com/@GitHub) en español.
+¡Hola developer 👋🏻! Este proyecto es una web retro con estilo **Game Boy** que muestra las sesiones de **Jueves de Quack**, la iniciativa comunitaria del canal de [GitHub en YouTube](https://www.youtube.com/@GitHub) en español. Cada sesión se representa como un **cartucho de Game Boy** que puedes "soplar" antes de jugar.
 
-Cada sesión se representa como un **cartucho de Game Boy**. Al hacer click en un cartucho, la portada se carga en la consola y al pulsar **START** se abre el vídeo de YouTube correspondiente.
+<a href="https://youtu.be/VMPap6uuErU">
+ <img src="public/assets/covers/gis-torres.png" alt="Jueves de Quack con Gis Torres" width="100%" />
+</a>
+
+## 📑 Tabla de Contenidos
+
+- [Características](#-características)
+- [Demo](#-demo)
+- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+- [Requisitos Previos](#-requisitos-previos)
+- [Instalación](#-instalación)
+- [Uso](#-uso)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Créditos de Diseño](#-créditos-de-diseño-codepen)
+- [Licencia](#-licencia)
+- [Sígueme](#-sígueme-en-mis-redes-sociales)
 
 ## ✨ Características
 
@@ -20,7 +38,11 @@ Cada sesión se representa como un **cartucho de Game Boy**. Al hacer click en u
 - 🎬 **Start → YouTube** — Al pulsar START en la consola, se abre el vídeo del cartucho seleccionado
 - 📱 **Responsive** — Funciona en desktop y móvil
 
-## 🚀 Stack tecnológico
+## 🌐 Demo
+
+Puedes ver la web en funcionamiento en: **[0GiS0.github.io/sopla-el-cartucho-en-jueves-de-quack](https://0GiS0.github.io/sopla-el-cartucho-en-jueves-de-quack)**
+
+## 🛠️ Tecnologías Utilizadas
 
 | Tecnología                                    | Uso                                        |
 | --------------------------------------------- | ------------------------------------------ |
@@ -29,25 +51,66 @@ Cada sesión se representa como un **cartucho de Game Boy**. Al hacer click en u
 | [Sharp](https://sharp.pixelplumbing.com/)     | Pipeline de generación de assets pixel art |
 | CSS Custom Properties                         | Theming retro sin dependencias externas    |
 
-## 🛠️ Instalación y desarrollo local
+## � Requisitos Previos
+
+- **Node.js** versión 18 o superior
+- **npm** (incluido con Node.js)
+- Conexión a internet para descargar las sesiones del feed RSS
+
+## 🚀 Instalación
+
+### Paso 1: Clonar el repositorio
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/0GiS0/sopla-el-cartucho-en-jueves-de-quack.git
 cd sopla-el-cartucho-en-jueves-de-quack
+```
 
-# Instalar dependencias (requiere Node.js >= 18)
+### Paso 2: Instalar dependencias
+
+```bash
 npm install
+```
 
-# Descargar sesiones desde YouTube RSS
+### Paso 3: Descargar sesiones desde YouTube RSS
+
+```bash
 npm run fetch-sessions
+```
 
-# Iniciar servidor de desarrollo
+### Paso 4: Iniciar servidor de desarrollo
+
+```bash
 npm run dev
-# → http://localhost:4321
+```
 
-# Build para producción
-npm run build
+El servidor estará disponible en `http://localhost:4321`
+
+## 💻 Uso
+
+### Desarrollo local
+
+```bash
+npm run dev          # Inicia el servidor de desarrollo
+npm run build        # Genera la build de producción
+npm run preview      # Previsualiza la build de producción
+```
+
+### Generación de assets
+
+```bash
+npm run fetch-sessions    # Descarga las sesiones del RSS de YouTube
+npm run generate:assets   # Genera avatares 8-bit
+npm run generate:covers   # Genera portadas de cartuchos
+npm run generate:all      # Genera todos los assets
+```
+
+### Calidad de código
+
+```bash
+npm run lint         # Ejecuta ESLint
+npm run format       # Formatea el código con Prettier
+npm test             # Ejecuta los tests
 ```
 
 ## 📁 Estructura del proyecto
@@ -83,3 +146,18 @@ El diseño retro se basa en trabajos publicados en CodePen bajo licencia MIT:
 ## 📄 Licencia
 
 MIT
+
+---
+
+## 🌐 Sígueme en Mis Redes Sociales
+
+Si te ha gustado este proyecto y quieres ver más contenido como este, no olvides suscribirte a mi canal de YouTube y seguirme en mis redes sociales:
+
+<div align="center">
+
+[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UC140iBrEZbOtvxWsJ-Tb0lQ?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/c/GiselaTorres?sub_confirmation=1)
+[![GitHub followers](https://img.shields.io/github/followers/0GiS0?style=for-the-badge&logo=github&logoColor=white)](https://github.com/0GiS0)
+[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Sígueme-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/giselatorresbuitrago/)
+[![X Follow](https://img.shields.io/badge/X-Sígueme-black?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/0GiS0)
+
+</div>
