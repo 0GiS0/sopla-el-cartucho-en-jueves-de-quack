@@ -39,18 +39,18 @@ const remainingSessions = sessions.slice(3);
           <h1 id="site-title">Sopla el cartucho</h1>
           <p class="event-name">🦆 {show.name}</p>
         </div>
-        <picture>
-          <source
-            media="(prefers-color-scheme: light)"
-            srcset={`${base}/assets/retro-quack-glasses.png`}
-          />
-          <img
-            src={`${base}/assets/retro-duck.png`}
-            alt="Pato de goma"
-            class="duck-decoration"
-            aria-hidden="true"
-          />
-        </picture>
+        <img
+          src={`${base}/assets/retro-quack-glasses.png`}
+          alt="Pato de goma"
+          class="duck-decoration duck-light"
+          aria-hidden="true"
+        />
+        <img
+          src={`${base}/assets/retro-duck.png`}
+          alt="Pato de goma"
+          class="duck-decoration duck-dark"
+          aria-hidden="true"
+        />
       </div>
 
       <div class="hero-cards" id="speakers">

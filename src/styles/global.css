@@ -308,6 +308,19 @@ main {
   image-rendering: pixelated;
 }
 
+/* Modo claro: gafas. Modo oscuro: pato original */
+.duck-dark {
+  display: none;
+}
+
+:root[data-theme='dark'] .duck-light {
+  display: none;
+}
+
+:root[data-theme='dark'] .duck-dark {
+  display: block;
+}
+
 @keyframes duck-bob {
   0%,
   100% {
