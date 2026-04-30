@@ -6,6 +6,66 @@
   },
   "sessions": [
     {
+      "id": "jueves-de-quack-con-gis-torres",
+      "title": "Jueves de Quack con Gis Torres",
+      "description": "Jueves de Quack con Gis Torres",
+      "speakers": [
+        {
+          "name": "Gis Torres",
+          "role": "Host",
+          "avatarUrl": "https://i.ytimg.com/vi/VMPap6uuErU/maxresdefault.jpg"
+        }
+      ],
+      "date": "2026-04-30",
+      "videoUrl": "https://www.youtube.com/watch?v=VMPap6uuErU",
+      "thumbnailUrl": "https://i.ytimg.com/vi/VMPap6uuErU/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-lo-nuevo-en-github-copilot-cli",
+      "title": "Jueves de Quack - Lo nuevo en GitHub Copilot CLI",
+      "description": "Hoy exploramos GitHub Copilot CLI, la herramienta que está revolucionando cómo desarrollamos desde la terminal. Además, iniciamos el proyecto \"Open Source Hunt\" basado en la discusión comunitaria con @sergio-jc. https://github.com/githubevents/jueves-de-quack/discussions/2",
+      "speakers": [],
+      "date": "2026-04-10",
+      "videoUrl": "https://www.youtube.com/watch?v=xoMYRAZRcsc",
+      "thumbnailUrl": "https://i.ytimg.com/vi/xoMYRAZRcsc/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack-con-nerdearla",
+      "title": "Jueves de Quack con Nerdearla",
+      "description": "Este Jueves de Quack tengo un invitado muy especial: Ariel Jolo de Sysarmy, uno de los organizadores de Nerdearla.\n\nVamos a conversar sobre comunidad, tecnología en Latinoamérica, cómo nació Nerdearla, y qué se necesita para construir espacios donde developers, sysadmins y gente curiosa por la tecnología puedan aprender y conectarse.\n\nTambién vamos a hablar de cultura open source, el ecosistema tech en la región, y seguro saldrán muchas historias del detrás de escena de una de las conferencias m",
+      "speakers": [
+        {
+          "name": "Nerdearla",
+          "role": "Invitado/a",
+          "avatarUrl": "https://i.ytimg.com/vi/StWXcesvGj4/maxresdefault.jpg"
+        }
+      ],
+      "date": "2026-03-27",
+      "videoUrl": "https://www.youtube.com/watch?v=StWXcesvGj4",
+      "thumbnailUrl": "https://i.ytimg.com/vi/StWXcesvGj4/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
+      "id": "jueves-de-quack",
+      "title": "Jueves de Quack",
+      "description": "Jueves de Quack en modo coworking. Vamos a trabajar en nuestras cosas y de paso hablar de las mejores herramientas gratuitas y open source que existen hoy. Las que no cuestan nada pero sí valen mucho.",
+      "speakers": [],
+      "date": "2026-03-20",
+      "videoUrl": "https://www.youtube.com/watch?v=rtGs98ihne8",
+      "thumbnailUrl": "https://i.ytimg.com/vi/rtGs98ihne8/maxresdefault.jpg",
+      "type": "episode",
+      "language": "es",
+      "tags": []
+    },
+    {
       "id": "jueves-de-quack-con-karobot",
       "title": "Jueves de Quack con @Karobot",
       "description": "Esta semana hablamos con el equipo de Fundación Átoma — una organización sin ánimo de lucro que usa educación y tecnología para abrir oportunidades reales para mujeres, jóvenes y comunidades vulnerables en Colombia. https://fundacionatoma.org/",
@@ -186,7 +246,7 @@
       "tags": []
     },
     {
-      "id": "jueves-de-quack",
+      "id": "jueves-de-quack-2",
       "title": "Jueves de Quack",
       "description": "¡Únete a nosotros para un stream informal en español! En esta sesión, veremos cómo funciona MCP, y además discutiremos cómo integrar herramientas de IA como  en los flujos de trabajo de desarrollo. Será un espacio relajado para aprender, experimentar y compartir ideas sobre el futuro del desarrollo con inteligencia artificial y registros modernos. ¡No te lo pierdas!",
       "speakers": [],
@@ -198,7 +258,7 @@
       "tags": []
     },
     {
-      "id": "jueves-de-quack-2",
+      "id": "jueves-de-quack-3",
       "title": "Jueves de Quack",
       "description": "Únete @acolombiadev  y Rubén Casas (Staff Engineer en Postman) para una exploración profunda de herramientas de desarrollo de APIs de vanguardia. En esta sesión en vivo, exploramos:\n\n✅ Lo que aprenderás:\nCómo crear servidores MCP (Model Context Protocol) con un clic\nConstruir flujos de trabajo de agentes IA usando el editor visual Postman Flows\nImplementar MCP-UI para interfaces de chat interactivas\nProgramación en vivo y depuración en producción\nConsejos de carrera para llegar a nivel staff eng",
       "speakers": [],

@@ -1,3 +1,125 @@
 {
-  "assets": []
+  "assets": [
+    {
+      "sessionId": "jueves-de-quack-con-gis-torres",
+      "cover": "/assets/covers/gis-torres.png",
+      "avatarOriginal": "/assets/avatars/original/gis-torres.jpg",
+      "avatar8bit": "/assets/covers/gis-torres.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-lo-nuevo-en-github-copilot-cli",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack-lo-nuevo-en-github-copilot-cli.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack-lo-nuevo-en-github-copilot-cli.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-con-nerdearla",
+      "avatarOriginal": "/assets/avatars/original/nerdearla.jpg",
+      "avatar8bit": "/assets/avatars/nerdearla.png"
+    },
+    {
+      "sessionId": "jueves-de-quack",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-con-karobot",
+      "avatarOriginal": "/assets/avatars/original/karobot.jpg",
+      "avatar8bit": "/assets/avatars/karobot.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-intro-al-copilot-cli",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack-intro-al-copilot-cli.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack-intro-al-copilot-cli.png"
+    },
+    {
+      "sessionId": "jueves-en-quack-con-el-bruno",
+      "avatarOriginal": "/assets/avatars/original/el-bruno.jpg",
+      "avatar8bit": "/assets/avatars/el-bruno.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quak-con-carlos-alarcon-y-copilot-sdk",
+      "avatarOriginal": "/assets/avatars/original/carlos-alarcon-y-copilot-sdk.jpg",
+      "avatar8bit": "/assets/avatars/carlos-alarcon-y-copilot-sdk.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-bienvenidos-a-la-familia-claudeai-code-y-openai-s-codex",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack-bienvenidos-a-la-familia-claudeai-code-y-openai-s-codex.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack-bienvenidos-a-la-familia-claudeai-code-y-openai-s-codex.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-copilot-sdk",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-copilot-sdk.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-copilot-sdk.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-con-acolombiadev",
+      "avatarOriginal": "/assets/avatars/original/acolombiadev.jpg",
+      "avatar8bit": "/assets/avatars/acolombiadev.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-con-carlos-azaustre",
+      "avatarOriginal": "/assets/avatars/original/carlos-azaustre.jpg",
+      "avatar8bit": "/assets/avatars/carlos-azaustre.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-con-gisela-torres",
+      "avatarOriginal": "/assets/avatars/original/gisela-torres.jpg",
+      "avatar8bit": "/assets/avatars/gisela-torres.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-con-interledger",
+      "avatarOriginal": "/assets/avatars/original/interledger.jpg",
+      "avatar8bit": "/assets/avatars/interledger.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-con-gisela-torres",
+      "avatarOriginal": "/assets/avatars/original/gisela-torres-d9c3c018.jpg",
+      "avatar8bit": "/assets/avatars/gisela-torres-d9c3c018.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-2",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack-2.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack-2.png"
+    },
+    {
+      "sessionId": "jueves-de-quack-3",
+      "avatarOriginal": "/assets/avatars/original/jueves-de-quack-3.jpg",
+      "avatar8bit": "/assets/avatars/jueves-de-quack-3.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-2",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-2.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-2.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-3",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-3.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-3.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-especial-vs-code-y-github-copilot",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-especial-vs-code-y-github-copilot.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-especial-vs-code-y-github-copilot.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-4",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-4.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-4.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-5",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-5.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-5.png"
+    },
+    {
+      "sessionId": "event-in-spanish-jueves-de-quack-6",
+      "avatarOriginal": "/assets/avatars/original/event-in-spanish-jueves-de-quack-6.jpg",
+      "avatar8bit": "/assets/avatars/event-in-spanish-jueves-de-quack-6.png"
+    }
+  ]
 }
