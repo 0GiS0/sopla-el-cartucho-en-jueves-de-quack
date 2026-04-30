@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "sharp": "^0.34.5",
-    "zod": "^4.3.6"
+    "zod": "^4.4.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
