@@ -296,7 +296,7 @@ main {
 }
 
 .duck-decoration {
-  width: clamp(120px, 16vw, 200px);
+  width: clamp(190px, 23vw, 300px);
   height: auto;
   flex-shrink: 0;
   animation: duck-bob 1.8s ease-in-out infinite;
